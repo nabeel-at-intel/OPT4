@@ -1,0 +1,382 @@
+Fitter Retime Stage Report for top
+Thu Aug  8 10:58:36 2024
+Quartus Prime Version 24.1.0 Internal Build 111 03/17/2024 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Hyper-Retimer Settings
+  3. Reset Sequence Requirement
+  4. Retiming Limit Summary
+  5. Critical Chain Summary for Transfer from sys_clk to v
+  6. Critical Chain Summary for Clock Domain sys_clk
+  7. Transfer from v to sys_clk (Meets timing requirements: No further analysis performed.)
+  8. Internal Retiming Statistics (Developer License only)
+  9. Hyper-Retimer INI Usage
+ 10. Retime Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++--------------------------------------------------+
+; Hyper-Retimer Settings                           ;
++------------------------+---------+---------------+
+; Option                 ; Setting ; Default Value ;
++------------------------+---------+---------------+
+; Enable Auto-Pipelining ; On      ; On            ;
++------------------------+---------+---------------+
+
+
++------------------------------------------+
+; Reset Sequence Requirement               ;
++------------+-----------------------------+
+; Clock Name ; Number of additional cycles ;
++------------+-----------------------------+
+; sys_clk    ; 0                           ;
+; v          ; 0                           ;
++------------+-----------------------------+
+Note: Due to retiming optimizations, a clock domain may require a longer reset sequence to ensure correct functionality.  The table above indicates the minimum number of additional reset sequence cycles needed for each clock domain.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Retiming Limit Summary                                                                                                                                                                                                     ;
++----------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+; Clock Transfer             ; Limiting Reason                                           ; Recommendation                                                                                                                    ;
++----------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+; Transfer from sys_clk to v ; Insufficient Registers                                    ; See the Fast Forward Timing Closure Recommendations report for step-by-step suggestions for RTL changes and estimated performance ;
+; Clock Domain sys_clk       ; Insufficient Registers                                    ; See the Fast Forward Timing Closure Recommendations report for step-by-step suggestions for RTL changes and estimated performance ;
+; Transfer from v to sys_clk ; Meets timing requirements: No further analysis performed. ; None                                                                                                                              ;
++----------------------------+-----------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+
+
+Critical Chain Summary for Transfer from sys_clk to v
+===============================================================================
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Recommendations for Critical Chain                                                                                                                                                                                                                      ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Recommendation                                                                                                                                                                                                                                          ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; The critical chain is limited by: Insufficient Registers                                                                                                                                                                                                ;
+;                                                                                                                                                                                                                                                         ;
+; Reduce the delay of 'Long Paths' in the chain                                                                                                                                                                                                           ;
+;   or insert more pipeline stages for 'Long Paths' in the chain                                                                                                                                                                                          ;
+;   or remove retiming restrictions                                                                                                                                                                                                                       ;
+;    Refer to <a href='https://www.intel.com/content/www/us/en/docs/programmable/683353/current/insufficient-registers.html'>Insufficient Registers</a> in the <i>Intel Hyperflex Architecture High-Performance Design Handbook</i> for more information. ;
+;                                                                                                                                                                                                                                                         ;
+; Retiming Restrictions at Register #1:                                                                                                                                                                                                                   ;
+;  data_output[2]~reg0                                                                                                                                                                                                                                    ;
+;   Node uses an asynchronous clear port                                                                                                                                                                                                                  ;
+;   Node is a path end-point that belongs to a cross-clock transfer                                                                                                                                                                                       ;
+;    Cross-Clock transfer is found at the node's fanouts                                                                                                                                                                                                  ;
+;     From clock: sys_clk                                                                                                                                                                                                                                 ;
+;     To clock: v                                                                                                                                                                                                                                         ;
+;                                                                                                                                                                                                                                                         ;
+; Retiming Restrictions at:                                                                                                                                                                                                                               ;
+;  data_output[2]                                                                                                                                                                                                                                         ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Critical Chain Details                                                                                                                          ;
++----------------------+-------------------------+-------------+----------------------------------------------------------------------------------+
+; Path Info            ; Register                ; Register ID ; Element                                                                          ;
++----------------------+-------------------------+-------------+----------------------------------------------------------------------------------+
+; Retiming Restriction ; REG (required)          ; #1          ; data_output[2]~reg0                                                              ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~reg0|q                                                            ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~reg0~_LAB_RE_X256_Y5_N0_I115                                      ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~reg0~_C1_X256_Y4_N0_I25                                           ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~reg0~_C1_X256_Y3_N0_I38                                           ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~reg0~_C1_X256_Y3_N0_I85                                           ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; data_output[2]~reg0~_R4_X253_Y3_N0_I16                                           ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; data_output[2]~reg0~_R4_X249_Y3_N0_I16                                           ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; data_output[2]~reg0~_R4_X245_Y3_N0_I16                                           ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; data_output[2]~reg0~_R4_X241_Y3_N0_I16                                           ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~reg0~_R0_X240_Y3_N0_I48                                           ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~reg0~_LOCAL_INTERCONNECT_X240_Y3_N0_I35                           ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; data_output[2]~reg0~_BLOCK_INPUT_MUX_PASSTHROUGH_X240_Y3_N0_I32                  ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~reg0~_RPII_X240_Y3_N0_I19                                         ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~reg0~_RPI_X240_Y3_N0_I19                                          ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~reg0~_IO96FSLTWRRE_X226_Y0_N0_I2806                               ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~output~fmio96fs_lt_wr/s1235_0_44__vio_lab_core_periphery__c2p[14] ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~output~ufi_d_byp_1541                                             ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~output|i                                                          ;
+; Long Path (Critical) ;                         ;             ; data_output[2]~output|o                                                          ;
+; Retiming Restriction ; PIN                     ;             ; data_output[2]                                                                   ;
++----------------------+-------------------------+-------------+----------------------------------------------------------------------------------+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Internal Negative Cycle Information (Developer License only)                                                                                                                                                                                                                                                                                                                                                                                                ;
++---------------------------------------------------------------------------------------------------+---------------------+---------+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Negative Cycle Info                                                                               ; TDB Node1           ; DebugID ; TDB Node2      ; DebugID ; Extra Constraint Info                                                                                                                                                                                                                                                                        ;
++---------------------------------------------------------------------------------------------------+---------------------+---------+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 18295 --> 0  edge1(4294967295) edge2(4294967295)  w(0) type(!touch)                               ; -1                  ; -1      ; -1             ; -1      ; DST_DONT_TOUCH (rdg_node=18295) CROSS_CLK_TRANSFER_COMB CROSS_CLK_TRANSFER_REG                                                                                                                                                                                                               ;
+;                                                                                                   ;                     ;         ;                ;         ;     2190379339:BLOCK_INPUT_MUX_PASSTHROUGH_X240_Y3_N0_I32 [RE]: CROSS_CLK_TRANSFER_REG ct 1 found on its fanin cone    data_output(2)~pad:PADOUT:0 [O_TERMINAL]: CROSS_CLK_TRANSFER_REG ct 1 found on its fanin cone    rdg_node=18295: CROSS_CLK_TRANSFER_COMB ct 1 found on its fanin cone ;
+; 3774 --> 18295  edge1(22299) edge2(57050)  w(-1) slack((-3884, -1.29467)) super_ct(1) type(setup) ; data_output[2]~reg0 ; 35325   ; data_output[2] ; 101229  ; N/A                                                                                                                                                                                                                                                                                          ;
+; 0 --> 3774  edge1(22299) edge2(4294967295)  w(0) type(!touch)                                     ; data_output[2]~reg0 ; 35325   ; -1             ; -1      ; SRC_DONT_TOUCH (rdg_node=3774) CROSS_CLK_TRANSFER_COMB CROSS_CLK_TRANSFER_REG HAS_ASYNCH_CLEAR                                                                                                                                                                                               ;
+;                                                                                                   ;                     ;         ;                ;         ;     data_output[2]~reg0:REGOUT:0 [FF]: CROSS_CLK_TRANSFER_REG HAS_ASYNCH_CLEAR ct 1 found on its fanout cone    2192652066:R4_X253_Y3_N0_I16 [RE]: CROSS_CLK_TRANSFER_REG ct 1 found on its fanin cone    rdg_node=3774: CROSS_CLK_TRANSFER_COMB ct 1 found on its fanin cone                ;
++---------------------------------------------------------------------------------------------------+---------------------+---------+----------------+---------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
+
+Critical Chain Summary for Clock Domain sys_clk
+===============================================================================
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Recommendations for Critical Chain                                                                                                                                                                                                                                 ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Recommendation                                                                                                                                                                                                                                                     ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; The critical chain is limited by: Insufficient Registers                                                                                                                                                                                                           ;
+;                                                                                                                                                                                                                                                                    ;
+; Reduce the delay of 'Long Paths' in the chain                                                                                                                                                                                                                      ;
+;   or insert more pipeline stages for 'Long Paths' in the chain                                                                                                                                                                                                     ;
+;   or remove retiming restrictions                                                                                                                                                                                                                                  ;
+;    Refer to <a href='https://www.intel.com/content/www/us/en/docs/programmable/683353/current/insufficient-registers.html'>Insufficient Registers</a> in the <i>Intel Hyperflex Architecture High-Performance Design Handbook</i> for more information.            ;
+;                                                                                                                                                                                                                                                                    ;
+; Retiming Restriction: Not fully registered RAM                                                                                                                                                                                                                     ;
+;   my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49                                                                                                                                                                                               ;
+;     Insert more pipeline stages after the RAM block to allow better register packing.                                                                                                                                                                              ;
+;     Review Fitter Report: RAM Summary                                                                                                                                                                                                                              ;
+;    Refer to <a href='https://www.intel.com/content/www/us/en/docs/programmable/683353/current/hyper-pipelining-add-pipeline-registers.html'>Hyper-Pipelining</a> in the <i>Intel Hyperflex Architecture High-Performance Design Handbook</i> for more information. ;
+;                                                                                                                                                                                                                                                                    ;
+; Retiming Restrictions at Register #1:                                                                                                                                                                                                                              ;
+;  my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49                                                                                                                                                                                                ;
+;   Node is in a RAM or DSP block that cannot be retimed.                                                                                                                                                                                                            ;
+;   Allow more RAM and DSP retiming by turning on global assignments ALLOW_RAM_RETIMING and ALLOW_DSP_RETIMING.                                                                                                                                                      ;
+;   Otherwise manually adjust your RTL design to add additional registers or re-position registers along the path to balance slack                                                                                                                                   ;
+;                                                                                                                                                                                                                                                                    ;
+; Retiming Restrictions at Register #2:                                                                                                                                                                                                                              ;
+;  data_output[6]~reg0                                                                                                                                                                                                                                               ;
+;   Node uses an asynchronous clear port                                                                                                                                                                                                                             ;
+;   Node is a path end-point that belongs to a cross-clock transfer                                                                                                                                                                                                  ;
+;    Cross-Clock transfer is found at the node's fanouts                                                                                                                                                                                                             ;
+;     From clock: sys_clk                                                                                                                                                                                                                                            ;
+;     To clock: v                                                                                                                                                                                                                                                    ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Critical Chain Details                                                                                                                                                       ;
++----------------------+-------------------------+-------------+---------------------------------------------------------------------------------------------------------------+
+; Path Info            ; Register                ; Register ID ; Element                                                                                                       ;
++----------------------+-------------------------+-------------+---------------------------------------------------------------------------------------------------------------+
+; Retiming Restriction ; REG (RAM)               ; #1          ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49~reg0                                       ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49|portbdataout[0]                            ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49~MEDIUM_EAB_RE_X262_Y10_N0_I90              ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49~R0_X262_Y10_N0_I13                         ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49~R0_X262_Y10_N0_I65                         ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49~C4_X262_Y6_N0_I41                          ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49~R4_X259_Y6_N0_I16                          ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49~LOCAL_INTERCONNECT_X258_Y6_N0_I57          ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49~BLOCK_INPUT_MUX_PASSTHROUGH_X258_Y6_N0_I48 ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49~LAB_RE_X258_Y6_N0_I50                      ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|mux4|rtl~34|datac                                        ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|mux4|rtl~34|combout                                      ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|mux4|rtl~34~_LAB_RE_X258_Y6_N0_I145                      ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|mux4|rtl~34~_C1_X258_Y6_N0_I22                           ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|mux4|rtl~34~_R0_X258_Y7_N0_I43                           ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|mux4|rtl~34~_LOCAL_INTERCONNECT_X258_Y7_N0_I13           ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|mux4|rtl~34~_BLOCK_INPUT_MUX_PASSTHROUGH_X258_Y7_N0_I10  ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|mux4|rtl~34~_LAB_RE_X258_Y7_N0_I8                        ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram~16|datae                                                                                           ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram~16|combout                                                                                         ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram~16~cw_ml_mlab/laboutt[5]                                                                           ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram~16~_LAB_RE_X258_Y7_N0_I94                                                                          ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram~16~_R2_X257_Y7_N0_I3                                                                               ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram~16~_R1_X256_Y7_N0_I7                                                                               ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram~16~_LOCAL_INTERCONNECT_X255_Y7_N0_I17                                                              ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; my_ram|ram~16~_BLOCK_INPUT_MUX_PASSTHROUGH_X255_Y7_N0_I3                                                      ;
+; Long Path (Critical) ;                         ;             ; my_ram|ram~16~_LAB_RE_X255_Y7_N0_I7                                                                           ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~50|datae                                                                                    ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~50|combout                                                                                  ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~50~_LAB_RE_X255_Y7_N0_I129                                                                  ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~50~_LOCAL_INTERCONNECT_X255_Y7_N0_I12                                                       ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; count_ones|add_15~50~_BLOCK_INPUT_MUX_PASSTHROUGH_X255_Y7_N0_I53                                              ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~50~_LAB_RE_X255_Y7_N0_I52                                                                   ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~53|datab                                                                                    ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~53|combout                                                                                  ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~53~_LAB_RE_X255_Y7_N0_I140                                                                  ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~53~_C1_X255_Y6_N0_I27                                                                       ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~53~_LOCAL_INTERCONNECT_X255_Y6_N0_I41                                                       ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; count_ones|add_15~53~_BLOCK_INPUT_MUX_PASSTHROUGH_X255_Y6_N0_I41                                              ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~53~_LAB_RE_X255_Y6_N0_I45                                                                   ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~31|datac                                                                                    ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~31|cout                                                                                     ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~36|cin                                                                                      ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~41|sumout                                                                                   ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~41~_LAB_RE_X255_Y6_N0_I116                                                                  ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~41~_R1_X256_Y6_N0_I24                                                                       ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~41~_LOCAL_INTERCONNECT_X256_Y6_N0_I57                                                       ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; count_ones|add_15~41~_BLOCK_INPUT_MUX_PASSTHROUGH_X256_Y6_N0_I12                                              ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~41~_LAB_RE_X256_Y6_N0_I11                                                                   ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~16|dataa                                                                                    ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~16|sumout                                                                                   ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~16~_LAB_RE_X256_Y6_N0_I95                                                                   ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~16~_R0_X256_Y6_N0_I12                                                                       ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~16~_LOCAL_INTERCONNECT_X256_Y6_N0_I54                                                       ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; count_ones|add_15~16~_BLOCK_INPUT_MUX_PASSTHROUGH_X256_Y6_N0_I49                                              ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_15~16~_LAB_RE_X256_Y6_N0_I53                                                                   ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~46|datac                                                                                    ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~46|cout                                                                                     ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~51|cin                                                                                      ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~51|sumout                                                                                   ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~51~_LAB_RE_X256_Y6_N0_I118                                                                  ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~51~_C1_X256_Y5_N0_I31                                                                       ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~51~_LOCAL_INTERCONNECT_X256_Y5_N0_I61                                                       ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; count_ones|add_63~51~_BLOCK_INPUT_MUX_PASSTHROUGH_X256_Y5_N0_I16                                              ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~51~_LAB_RE_X256_Y5_N0_I18                                                                   ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~21|datac                                                                                    ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~21|sumout                                                                                   ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~21~_LAB_RE_X256_Y5_N0_I97                                                                   ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~21~_LOCAL_INTERCONNECT_X256_Y5_N0_I19                                                       ;
+; Long Path (Critical) ; Bypassed Hyper-Register ;             ; count_ones|add_63~21~_BLOCK_INPUT_MUX_PASSTHROUGH_X256_Y5_N0_I57                                              ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_63~21~_LAB_RE_X256_Y5_N0_I61                                                                   ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_93~21|datac                                                                                    ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_93~21|cout                                                                                     ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_93~26|cin                                                                                      ;
+; Long Path (Critical) ;                         ;             ; count_ones|add_93~31|sumout                                                                                   ;
+; Long Path (Critical) ;                         ;             ; data_output[6]~reg0|d                                                                                         ;
+; Retiming Restriction ; REG (required)          ; #2          ; data_output[6]~reg0                                                                                           ;
++----------------------+-------------------------+-------------+---------------------------------------------------------------------------------------------------------------+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Internal Negative Cycle Information (Developer License only)                                                                                                                                                                                                                                                                         ;
++------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+---------------------+---------+-----------------------------------------------------------------------------------------------------------------+
+; Negative Cycle Info                                                                            ; TDB Node1                                                               ; DebugID ; TDB Node2           ; DebugID ; Extra Constraint Info                                                                                           ;
++------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+---------------------+---------+-----------------------------------------------------------------------------------------------------------------+
+; 17326 --> 0  edge1(22295) edge2(4294967295)  w(0) type(!touch)                                 ; data_output[0]~reg0                                                     ; 35315   ; -1                  ; -1      ; DST_DONT_TOUCH (rdg_node=17326) CROSS_CLK_TRANSFER_REG HAS_ASYNCH_CLEAR                                         ;
+;                                                                                                ;                                                                         ;         ;                     ;         ;     data_output[6]~reg0:REGOUT:0 [FF]: CROSS_CLK_TRANSFER_REG HAS_ASYNCH_CLEAR ct 1 found on its fanout cone    ;
+; 2157 --> 17326  edge1(15158) edge2(22307)  w(-1) slack((-1260, -0.42)) super_ct(0) type(setup) ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49~reg0 ; 15795   ; data_output[6]~reg0 ; 35345   ; N/A                                                                                                             ;
+; 0 --> 2157  edge1(15158) edge2(4294967295)  w(0) type(!touch)                                  ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49~reg0 ; 15795   ; -1                  ; -1      ; SRC_DONT_TOUCH (rdg_node=2157) BURIED_FAST_FORWARDABLE-RAM                                                      ;
+;                                                                                                ;                                                                         ;         ;                     ;         ;     [my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ram_block2a49~reg0] [BURIED]: BURIED_FAST_FORWARDABLE ;
++------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+---------------------+---------+-----------------------------------------------------------------------------------------------------------------+
+
+
+
+Transfer from v to sys_clk (Meets timing requirements: No further analysis performed.)
+===============================================================================
+
+
++-----------------------------------------------------------------------------------------+
+; Internal Retiming Statistics (Developer License only)                                   ;
++------------------------------------------------------------------------------+----------+
+; Statistic                                                                    ; Value    ;
++------------------------------------------------------------------------------+----------+
+; Number of iterations                                                         ; 1        ;
+; Number of BF clock transfers                                                 ; 3        ;
+; Number of all-clock-transfer BF calls                                        ; 0        ;
+; Number of single-clock-transfer BF calls                                     ; 0        ;
+; Number of BF iterations                                                      ; 0        ;
+; Number of dual graph edges                                                   ; 72424    ;
+; Number of dual graph nodes                                                   ; 28622    ;
+; Number of dual graph nodes that failed EA                                    ; 0        ;
+; Number of register moves                                                     ; 0        ;
+; Number of backward register moves attempted                                  ; 0        ;
+; Number of failed register moves due to initial condition                     ; 0        ;
+; Number of failed register moves due to backward reconvergent                 ; 0        ;
+; Number of failed register moves due to incompatibility                       ; 0        ;
+; Number of failed register moves due to unsupported high power-ups on ALM FFs ; 0        ;
+; Number of failed register moves due to power-up unknown buried slots         ; 0        ;
+; Number of cumulative register moves                                          ; 0        ;
+; Number of clock pairs with new timing paths                                  ; 0        ;
+; Number of dont_touch nodes                                                   ; 30559    ;
+; Number of dont_touch useless nodes                                           ; 0        ;
+; Number of traversed subdomains                                               ; 0        ;
+; Number of negative cycles found                                              ; 8        ;
+; Number of BF edges checked                                                   ; 0        ;
+; Number of constraints in the constraint graph                                ; 179205   ;
+; Number of locations disabled due to clock overuse                            ; 0        ;
+; Number of dont_touch nodes to prevent self clock transfers                   ; 0        ;
+; Number of cut edges extended for variable latency by zero                    ; 0        ;
+; Number of cut edges extended for variable latency by one                     ; 0        ;
+; Number of cut edges extended for variable latency by two                     ; 0        ;
+; Number of cut edges extended for variable latency by three                   ; 0        ;
+; Number of cut edges extended for variable latency by four or more            ; 0        ;
+; Number of cut edges extended for variable latency already used               ; 0        ;
+; Number of sclr/ena slots that can't be used because only one retimable       ; 0        ;
+; Number of sclr/ena slots that must be retimed together                       ; 0        ;
+; Number of dynamic hold constraint calls made                                 ; 1        ;
+; Number of dynamic hold constraint call failures                              ; 0        ;
+; Number of dynamic hold constraints added                                     ; 0        ;
+; Number of dynamic duplicate hold constraints skipped                         ; 0        ;
+; Number of dynamic hold clock conflict                                        ; 0        ;
+; Number of dynamic hold setup slack too small                                 ; 0        ;
+; Number of dynamic hold should already be fixed                               ; 0        ;
+; Number of dynamic hold fixed                                                 ; 0        ;
+; Number of setup constraints updated by setup constraints                     ; 0        ;
+; Number of setup constraints updated by heuristic constraints                 ; 0        ;
+; Number of heuristic constraints updated by setup constraints                 ; 0        ;
+; Number of heuristic constraints updated by heuristic constraints             ; 0        ;
+; Number of setup constraints not updated by setup constraints                 ; 0        ;
+; Number of setup constraints not updated by heuristic constraints             ; 0        ;
+; Number of heuristic constraints not updated by setup constraints             ; 0        ;
+; Number of heuristic constraints not updated by heuristic constraints         ; 0        ;
+; Number of heuristic constraints looser than setup constraints                ; 0        ;
+; Number of heuristic constraints tighter than setup constraints               ; 0        ;
+; Number of failing heuristic constraints that appear on final critical chains ; 0        ;
+; Number of clock legality calls                                               ; 1        ;
+; Number of clock legality call failures                                       ; 0        ;
+; Number of power-up legality calls                                            ; 0        ;
+; Number of power-up legality call failures                                    ; 0        ;
+; Number of ALM registers with power-up CARE                                   ; 37       ;
+; Maximum number of forward register moves over a dual graph node              ; 0        ;
+; Maximum number of backward register moves over a dual graph node             ; 0        ;
+; Fraction of relaxed nodes in BF                                              ; 0.000000 ;
+; RTM report generation time (seconds)                                         ; 0.145683 ;
+; Average retiming depth                                                       ; 0.000000 ;
+; Total retimer cpu time                                                       ; 0.515625 ;
+; Total retimer wall-clock time                                                ; 0.951239 ;
+; Total retimer giga instructions                                              ; 0.000000 ;
++------------------------------------------------------------------------------+----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hyper-Retimer INI Usage                                                                                                                                                   ;
++------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Option                 ; Usage                                                                                                                                            ;
++------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Initialization file:   ; C:/Users/nshirazi/quartus.ini                                                                                                                    ;
+; dev_password5          ; d0070c637d8802a600c03785ce4b58a984b8e9a8fc9ace5b0b729e9a81f478d319e8785a122336132243233372337720010147545516555442110400017555455131155164454545 ;
+;                        ;                                                                                                                                                  ;
+; Internally Set INI's:  ;                                                                                                                                                  ;
++------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------+
+; Retime Messages ;
++-----------------+
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 24.1.0 Internal Build 111 03/17/2024 SC Pro Edition
+    Info: Processing started: Thu Aug  8 10:36:07 2024
+    Info: System process ID: 26648
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off top -c top --plan --place --route --retime --finalize
+Info: Using INI file C:/Users/nshirazi/quartus.ini
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = top
+Info: Revision = top
+Info (17966): Starting Hyper-Retimer operations.
+Info (18914): The Hyper-Retimer was unable to optimize the design due to retiming restrictions. Run Fast Forward Timing Closure Recommendations to see step-by-step suggestions for design changes and show the estimated performance improvement from making these changes.
+Info (17968): Completed Hyper-Retimer operations.
+Info (18821): Fitter Hyper-Retimer operations ending: elapsed time is 00:00:10
+
+

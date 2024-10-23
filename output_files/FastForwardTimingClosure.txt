@@ -1,0 +1,9 @@
+Generating Fast Forward Timing Closure Recommendations
+To generate Fast Forward timing closure recommendations:
+
+On the Compilation Dashboard, click Fast Forward Timing Closure Recommendations.
+The Compiler runs prerequisite synthesis or Fitter stages as needed, and generates timing closure recommendations in the Compilation Report.
+View timing closure recommendations in the Compilation Report to evaluate design performance, and implement key RTL performance improvements.
+The Quartus® Prime Pro Edition software allows you to automate or refine Fast Forward analysis:
+To run Fast Forward compilation during each full compilation, click Assignments > Settings > Compiler Settings > HyperFlex, and turn on Run Fast Forward Timing Closure Recommendations during compilation.
+To modify how Fast Forward compilation interprets specific I/O and block types, click Assignments > Settings > Compiler Settings > HyperFlex Advanced Settings.

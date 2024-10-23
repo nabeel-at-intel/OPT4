@@ -1,0 +1,40 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'v'
+Slack : -3.884
+TNS   : -24.610
+Corner: Slow vid2 100C Model
+
+Type  : Setup 'sys_clk'
+Slack : -1.260
+TNS   : -32.558
+Corner: Slow vid2 100C Model
+
+Type  : Hold 'sys_clk'
+Slack : 0.000
+TNS   : 0.000
+Corner: Slow vid2 100C Model
+
+Type  : Hold 'v'
+Slack : 3.640
+TNS   : 0.000
+Corner: Fast vid2a -40C Model
+
+Type  : Recovery 'sys_clk'
+Slack : 2.571
+TNS   : 0.000
+Corner: Slow vid2b 100C Model
+
+Type  : Removal 'sys_clk'
+Slack : 0.153
+TNS   : 0.000
+Corner: Fast vid2a -40C Model
+
+Type  : Minimum Pulse Width 'sys_clk'
+Slack : 0.740
+TNS   : 0.000
+Corner: Slow vid2b 100C Model
+
+------------------------------------------------------------

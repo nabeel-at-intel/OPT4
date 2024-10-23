@@ -1,0 +1,11 @@
+The Optimize Hold Timing option directs the Quartus® Prime software to optimize minimum delay timing constraints.
+When you turn on Optimize Hold Timing in the Advanced Fitter Settings dialog box, the Quartus® Prime software adds delay to paths to ensure that your design meets the minimum delay requirements. If you select I/O Paths and Minimum TPD Paths, the Fitter works to meet the following criteria:
+
+Hold times (tH) from the device input pins to the registers
+Minimum delays from I/O pins to I/O registers or from I/O registers to I/O pins
+Minimum clock-to-out time (tCO) from registers to output pins
+If you select All Paths, the Fitter also works to meet hold requirements from registers to registers, as highlighted in blue in the figure, in which a derived clock generated with logic causes a hold time problem on another register.
+
+Figure 59. Optimize Hold Timing Option Fixing an Internal Hold Time Violation
+
+However, if your design still has internal hold time violations between registers, you can manually add delays by instantiating LCELL primitives, or by making changes to your design, such as using a clock enable signal instead of a derived or gated clock.

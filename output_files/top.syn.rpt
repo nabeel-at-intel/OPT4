@@ -1,0 +1,1139 @@
+Synthesis report
+Thu Aug  8 10:33:57 2024
+Quartus Prime Version 24.1.0 Internal Build 111 03/17/2024 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Synthesis Summary
+  3. Synthesis Settings
+  4. Parallel Compilation
+  5. Synthesis Source Files Read
+  6. Synthesis Partition Summary
+---- Analysis & Elaboration Stage Reports ----
+       7. Parameter Settings for Top-Level Entity
+       8. Parameter Settings for User Entity div_int Instance: LOOP[59].my_div
+       9. Parameter Settings for User Entity single_port_ram Instance: my_ram
+      10. Parameter Settings for User Entity count_ones Instance: count_ones
+      11. Top Causes of Logic Optimized Away During Sweep
+---- Logic Synthesis Stage Reports ----
+      12. Partition "root_partition" Resource Utilization by Entity
+      13. Registers Removed During Synthesis
+      14. General Register Statistics for Partition "root_partition"
+      15. Multiplexer Restructuring Statistics (Restructuring Performed)
+      16. Registers Added for RAM Pass-Through Logic
+      17. Registers Packed Into Inferred Megafunctions
+      18. Source Assignments for my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1
+      19. Parameter Settings for Inferred Entity Instance: my_ram|ram_rtl_0
+      20. Preserve for Debug Assignments for Partition "root_partition"
+      21. Post-Synthesis Netlist Statistics for Partition "root_partition"
+      22. Synthesis Resource Usage Summary for Partition "root_partition"
+      23. Synthesis RAM Summary for Partition "root_partition"
+ 24. Warnings for ../src/div_int.sv
+ 25. Warnings for ../src/single_port_ram.v
+ 26. Warnings for ../src/top.v
+ 27. General Warnings
+ 28. Synthesis INI Usage
+ 29. Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++---------------------------------------------------------------+
+; Synthesis Summary                                             ;
++-----------------------+---------------------------------------+
+; Synthesis Status      ; Successful - Thu Aug  8 10:33:55 2024 ;
+; Revision Name         ; top                                   ;
+; Top-level Entity Name ; top                                   ;
+; Family                ; Agilex 7                              ;
++-----------------------+---------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Synthesis Settings                                                                                                                  ;
++---------------------------------------------------------------------------------+-------------------------+-------------------------+
+; Option                                                                          ; Setting                 ; Default Value           ;
++---------------------------------------------------------------------------------+-------------------------+-------------------------+
+; Device                                                                          ; AGFB014R24A2I2V         ;                         ;
+; Top-level entity name                                                           ; top                     ; top                     ;
+; Family name                                                                     ; Agilex 7                ; Cyclone 10 GX           ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                      ; On                      ;
+; Enable compact report table                                                     ; Off                     ; Off                     ;
+; Enable Design Assistant in the compilation flow                                 ; On                      ; On                      ;
+; Design Assistant include IP blocks                                              ; Off                     ; Off                     ;
+; High fanout net threshold for RAM inference                                     ; 15                      ; 15                      ;
+; Design Assistant limit on reported violations per rule                          ; 5000                    ; 5000                    ;
+; Optimization Mode                                                               ; Balanced                ; Balanced                ;
+; Allow Register Retiming                                                         ; On                      ; On                      ;
+; Allow RAM Retiming                                                              ; Off                     ; Off                     ;
+; Allow DSP Retiming                                                              ; Off                     ; Off                     ;
+; Restructure Multiplexers                                                        ; Auto                    ; Auto                    ;
+; Waive gated clock synchronizer check                                            ; On                      ; On                      ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                     ; Off                     ;
+; Preserve fewer node names                                                       ; On                      ; On                      ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable                  ; Enable                  ;
+; Verilog Version                                                                 ; Verilog_2001            ; Verilog_2001            ;
+; VHDL Version                                                                    ; VHDL_1993               ; VHDL_1993               ;
+; State Machine Processing                                                        ; Auto                    ; Auto                    ;
+; Safe State Machine                                                              ; Auto                    ; Auto                    ;
+; Iteration limit for constant Verilog loops                                      ; 5000                    ; 5000                    ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                     ; 250                     ;
+; Infer RAMs from Raw Logic                                                       ; On                      ; On                      ;
+; DSP Block Balancing                                                             ; Auto                    ; Auto                    ;
+; NOT Gate Push-Back                                                              ; On                      ; On                      ;
+; Power-Up Don't Care                                                             ; On                      ; On                      ;
+; Remove Redundant Logic Cells                                                    ; Off                     ; Off                     ;
+; Remove Duplicate Registers                                                      ; On                      ; On                      ;
+; Ignore GLOBAL Buffers                                                           ; Off                     ; Off                     ;
+; Ignore LCELL Buffers                                                            ; Off                     ; Off                     ;
+; Ignore SOFT Buffers                                                             ; On                      ; On                      ;
+; Optimization Technique                                                          ; Balanced                ; Balanced                ;
+; Auto Open-Drain Pins                                                            ; On                      ; On                      ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                     ; Off                     ;
+; Auto ROM Replacement                                                            ; On                      ; On                      ;
+; Auto RAM Replacement                                                            ; On                      ; On                      ;
+; Auto DSP Block Replacement                                                      ; On                      ; On                      ;
+; Auto Shift Register Replacement                                                 ; Auto                    ; Auto                    ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                    ; Auto                    ;
+; Physical Shift Register Inference                                               ; On                      ; On                      ;
+; Auto Clock Enable Replacement                                                   ; On                      ; On                      ;
+; Strict RAM Replacement                                                          ; Off                     ; Off                     ;
+; Allow Synchronous Control Signals                                               ; On                      ; On                      ;
+; Force Use of Synchronous Clear Signals                                          ; Off                     ; Off                     ;
+; Auto Resource Sharing                                                           ; Off                     ; Off                     ;
+; Allow Any RAM Size For Recognition                                              ; Off                     ; Off                     ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                     ; Off                     ;
+; Ignore translate_off and synthesis_off directives                               ; Off                     ; Off                     ;
+; Report Propagation of Constraints                                               ; On                      ; On                      ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                     ; Off                     ;
+; Synchronization Register Chain Length                                           ; 3                       ; 3                       ;
+; Power Optimization During Synthesis                                             ; Normal compilation      ; Normal compilation      ;
+; HDL message level                                                               ; Level2                  ; Level2                  ;
+; Number of Protected Registers Reported in Synthesis Report                      ; 100                     ; 100                     ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                    ; 5000                    ;
+; Number of Optimized Away Hierarchies Reported in Synthesis Report               ; 100                     ; 100                     ;
+; Number of Top Root Causes Reported in Synthesis Report                          ; 10                      ; 10                      ;
+; Group Identical Hierarchies in Optimized Away Hierarchies Report                ; On                      ; On                      ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                    ; 5000                    ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                     ; 100                     ;
+; Clock MUX Protection                                                            ; On                      ; On                      ;
+; Auto Gated Clock Conversion                                                     ; Off                     ; Off                     ;
+; Block Design Naming                                                             ; Auto                    ; Auto                    ;
+; SDC constraint protection                                                       ; Off                     ; Off                     ;
+; Optimization and Constraint Precedence                                          ; Prioritize Optimization ; Prioritize Optimization ;
+; Synthesis Effort                                                                ; Auto                    ; Auto                    ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                      ; On                      ;
+; Analysis & Synthesis Message Level                                              ; Medium                  ; Medium                  ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                    ; Auto                    ;
+; Resource Aware Inference For Block RAM                                          ; On                      ; On                      ;
+; Automatic Parallel Synthesis                                                    ; On                      ; On                      ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                     ; Off                     ;
+; Disable DSP Negate Inferencing                                                  ; Off                     ; Off                     ;
+; Report Parameter Settings                                                       ; On                      ; On                      ;
+; Report Parameter Settings to ASCII                                              ; On                      ; On                      ;
+; Report Source Assignments                                                       ; On                      ; On                      ;
+; Report Source Assignments to ASCII                                              ; On                      ; On                      ;
+; Report Resource Utilization by Entity to ASCII                                  ; On                      ; On                      ;
+; Size of the Latch Report                                                        ; 100                     ; 100                     ;
+; Enable VHDL static assertion support                                            ; Off                     ; Off                     ;
+; Enable SystemVerilog static assertion support                                   ; Off                     ; Off                     ;
+; Enable State Machines Inference                                                 ; On                      ; On                      ;
+; Allow RAMs Inferred In Generate-For Loop For Verilog                            ; Off                     ; Off                     ;
+; Enable formal verification support during compilation                           ; Off                     ; Off                     ;
+; Size of the PR Initial Conditions Report                                        ; 100                     ; 100                     ;
+; Number of Registers with Ignored Power-Up Settings Reported in Synthesis Report ; 500                     ; 500                     ;
+; Report PR Initial Values as Errors                                              ; Off                     ; Off                     ;
+; Fractal Synthesis                                                               ; Off                     ; Off                     ;
+; Aggressive Multiplexer Area Optimization                                        ; Auto                    ; Auto                    ;
+; 6LUT to Extended Mode Conversion                                                ; Auto                    ; Auto                    ;
+; Synthesis Available Resource Multiplier                                         ; 1                       ; 1                       ;
+; Message Level for Unconnected Output Ports                                      ; Warning                 ; Warning                 ;
+; Pack Barrelshifters into Carry Chains for Better Area                           ; Auto                    ; Auto                    ;
+; Initialize Verilog enums to X                                                   ; Off                     ; Off                     ;
+; Enable dynamic report                                                           ; Off                     ; Off                     ;
+; Show Collapsible Rows in Ascii Report for Warning Summary Reports               ; On                      ; On                      ;
+; Enable RTL Analysis Debug Mode                                                  ; Off                     ; Off                     ;
+; Enable preserve for debug assignments                                           ; Off                     ; Off                     ;
++---------------------------------------------------------------------------------+-------------------------+-------------------------+
+
+
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 4      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Synthesis Source Files Read                                                                                                                                                                                                                                                                                                                            ;
++------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+---------+-----------+---------------+----------------------------------+
+; File Name with User-Entered Path                                                               ; File Type                                                                   ; File Name with Absolute Path                                                                   ; Library ; IP Source ; Include Files ; MD5                              ;
++------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+---------+-----------+---------------+----------------------------------+
+; ../src/top.sdc                                                                                 ; User-Specified SDC File (Read by the Timing Analyzer at each fitter stage)  ; C:/Quartus/KPIs/KPIs/OPT3/top/src/top.sdc                                                      ;         ;           ;               ; a080d548440a9dc472f19bc7130538b6 ;
+; ../src/top.v                                                                                   ; User-Specified Verilog HDL File                                             ; C:/Quartus/KPIs/KPIs/OPT3/top/src/top.v                                                        ;         ;           ;               ; 33ffd5c6149982070604a2554b3e7468 ;
+; ../src/single_port_ram.v                                                                       ; User-Specified Verilog HDL File                                             ; C:/Quartus/KPIs/KPIs/OPT3/top/src/single_port_ram.v                                            ;         ;           ;               ; e992f887942c7fd3cb23827e1f38d181 ;
+; ../src/div_int.sv                                                                              ; User-Specified SystemVerilog HDL File                                       ; C:/Quartus/KPIs/KPIs/OPT3/top/src/div_int.sv                                                   ;         ;           ;               ; 2267a2dcb01dc577fcb38a7a650743be ;
+; ../src/count_ones.sv                                                                           ; User-Specified SystemVerilog HDL File                                       ; C:/Quartus/KPIs/KPIs/OPT3/top/src/count_ones.sv                                                ;         ;           ;               ; ea17a07906c4ba9e8b629156fffde2fb ;
+; c:/intelfpga_pro/24.1/quartus/libraries/megafunctions/altera_syncram.tdf                       ; Megafunction                                                                ; c:/intelfpga_pro/24.1/quartus/libraries/megafunctions/altera_syncram.tdf                       ; work    ;           ;               ;                                  ;
+; cbx.lst                                                                                        ; Auto-Found Unspecified File                                                 ; c:/intelfpga_pro/24.1/quartus/libraries/megafunctions/cbx.lst                                  ;         ;           ;               ;                                  ;
+; C:/Quartus/KPIs/KPIs/OPT3/top/quartus_241/tmp-clearbox/top/19060/altera_syncram_impl_3p941.tdf ; Auto-Generated Megafunction                                                 ; C:/Quartus/KPIs/KPIs/OPT3/top/quartus_241/tmp-clearbox/top/19060/altera_syncram_impl_3p941.tdf ;         ;           ;               ;                                  ;
+; C:/Quartus/KPIs/KPIs/OPT3/top/quartus_241/tmp-clearbox/top/19060/altera_syncram_qjv81.tdf      ; Auto-Generated Megafunction                                                 ; C:/Quartus/KPIs/KPIs/OPT3/top/quartus_241/tmp-clearbox/top/19060/altera_syncram_qjv81.tdf      ;         ;           ;               ;                                  ;
+; C:/Quartus/KPIs/KPIs/OPT3/top/quartus_241/tmp-clearbox/top/19060/decode_29n7.tdf               ; Auto-Generated Megafunction                                                 ; C:/Quartus/KPIs/KPIs/OPT3/top/quartus_241/tmp-clearbox/top/19060/decode_29n7.tdf               ;         ;           ;               ;                                  ;
+; C:/Quartus/KPIs/KPIs/OPT3/top/quartus_241/tmp-clearbox/top/19060/mux_1jlp1.tdf                 ; Auto-Generated Megafunction                                                 ; C:/Quartus/KPIs/KPIs/OPT3/top/quartus_241/tmp-clearbox/top/19060/mux_1jlp1.tdf                 ;         ;           ;               ;                                  ;
++------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+---------+-----------+---------------+----------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Synthesis Partition Summary                                                                ;
++----------------+----------------+---------+--------------+-------+-------------------------+
+; Partition Name ; Hierarchy Path ; Type    ; Preservation ; Empty ; Partition Database File ;
++----------------+----------------+---------+--------------+-------+-------------------------+
+; root_partition ; |              ; Default ;              ;       ;                         ;
++----------------+----------------+---------+--------------+-------+-------------------------+
+
+
++--------------------------------------------+
+; Parameter Settings for Top-Level Entity    ;
++-------------------+-------+----------------+
+; Parameter Name    ; Value ; Type           ;
++-------------------+-------+----------------+
+; DATA_INPUT_WIDTH  ; 64    ; Signed Integer ;
+; DATA_OUTPUT_WIDTH ; 64    ; Signed Integer ;
+; NUM_STAMPS        ; 60    ; Signed Integer ;
++-------------------+-------+----------------+
+All Instances:
+<top>
+
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity div_int Instance: LOOP[59].my_div ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+All Instances:
+LOOP[0].my_div
+LOOP[1].my_div
+LOOP[2].my_div
+LOOP[3].my_div
+LOOP[4].my_div
+LOOP[5].my_div
+LOOP[6].my_div
+LOOP[7].my_div
+LOOP[8].my_div
+LOOP[9].my_div
+LOOP[10].my_div
+LOOP[11].my_div
+LOOP[12].my_div
+LOOP[13].my_div
+LOOP[14].my_div
+LOOP[15].my_div
+LOOP[16].my_div
+LOOP[17].my_div
+LOOP[18].my_div
+LOOP[19].my_div
+LOOP[20].my_div
+LOOP[21].my_div
+LOOP[22].my_div
+LOOP[23].my_div
+LOOP[24].my_div
+LOOP[25].my_div
+LOOP[26].my_div
+LOOP[27].my_div
+LOOP[28].my_div
+LOOP[29].my_div
+LOOP[30].my_div
+LOOP[31].my_div
+LOOP[32].my_div
+LOOP[33].my_div
+LOOP[34].my_div
+LOOP[35].my_div
+LOOP[36].my_div
+LOOP[37].my_div
+LOOP[38].my_div
+LOOP[39].my_div
+LOOP[40].my_div
+LOOP[41].my_div
+LOOP[42].my_div
+LOOP[43].my_div
+LOOP[44].my_div
+LOOP[45].my_div
+LOOP[46].my_div
+LOOP[47].my_div
+LOOP[48].my_div
+LOOP[49].my_div
+LOOP[50].my_div
+LOOP[51].my_div
+LOOP[52].my_div
+LOOP[53].my_div
+LOOP[54].my_div
+LOOP[55].my_div
+LOOP[56].my_div
+LOOP[57].my_div
+LOOP[58].my_div
+LOOP[59].my_div
+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity single_port_ram Instance: my_ram ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; ADDR_WIDTH     ; 14    ; Signed Integer                             ;
+; DATA_WIDTH     ; 64    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+All Instances:
+my_ram
+
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity count_ones Instance: count_ones ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; WIDTH          ; 128   ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+All Instances:
+count_ones
+
+
+
+Top root causes of logic optimization that have been identified during sweep. For more details and filtering options, ensure that you have compiled with the "Enable RTL Analysis Debug Mode " setting turned on under Assignments->Settings->Compiler Settings, then go to the " Root Causes Tab " in the " Sweep Hints Viewer " tool in the " RTL Analyzer ".
++------------------------------------------------------------------------------+
+; Top Causes of Logic Optimized Away During Sweep                              ;
++-----------------------+------------------+-------------+---------------------+
+; Root Object Path      ; Root Object Type ; Root Reason ; Swept Objects Count ;
++-----------------------+------------------+-------------+---------------------+
+; LOOP[29].my_div|r[16] ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; LOOP[30].my_div|r[16] ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; LOOP[0].my_div|r[19]  ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; LOOP[31].my_div|r[16] ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; LOOP[1].my_div|r[19]  ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; LOOP[32].my_div|r[16] ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; LOOP[2].my_div|r[19]  ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; LOOP[33].my_div|r[16] ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; LOOP[3].my_div|r[19]  ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
+; LOOP[34].my_div|r[16] ; OUTPUT_INST_PORT ; lost_fanout ; 3                   ;
++-----------------------+------------------+-------------+---------------------+
+Table limited at 10 items. To change the number of top root causes reported, set the "Number of Top Root Causes Reported in Synthesis Report " option under Assignments->Settings->Compiler Settings->Advanced Settings (Synthesis)
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Partition "root_partition" Resource Utilization by Entity                                                                                                                                                                                          ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+-----------+--------------------------------------------------------------+---------------------------+--------------+
+; Compilation Hierarchy Node         ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Max Depth ; Full Hierarchy Name                                          ; Entity Name               ; Library Name ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+-----------+--------------------------------------------------------------+---------------------------+--------------+
+; |                                  ; 8824 (626)          ; 9044 (8)                  ; 524288            ; 0          ; 131  ; 9.6 (4.0) ; |                                                            ; top                       ; altera_work  ;
+;    |LOOP[0].my_div|                ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[0].my_div                                               ; div_int                   ; altera_work  ;
+;    |LOOP[10].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[10].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[11].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[11].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[12].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[12].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[13].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[13].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[14].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[14].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[15].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[15].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[16].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[16].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[17].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[17].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[18].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[18].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[19].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[19].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[1].my_div|                ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[1].my_div                                               ; div_int                   ; altera_work  ;
+;    |LOOP[20].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[20].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[21].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[21].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[22].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[22].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[23].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[23].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[24].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[24].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[25].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[25].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[26].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[26].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[27].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[27].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[28].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[28].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[29].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[29].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[2].my_div|                ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[2].my_div                                               ; div_int                   ; altera_work  ;
+;    |LOOP[30].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[30].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[31].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[31].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[32].my_div|               ; 140 (140)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[32].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[33].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[33].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[34].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[34].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[35].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[35].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[36].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[36].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[37].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[37].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[38].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[38].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[39].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[39].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[3].my_div|                ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[3].my_div                                               ; div_int                   ; altera_work  ;
+;    |LOOP[40].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[40].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[41].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[41].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[42].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[42].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[43].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[43].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[44].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[44].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[45].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[45].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[46].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[46].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[47].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[47].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[48].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[48].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[49].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[49].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[4].my_div|                ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[4].my_div                                               ; div_int                   ; altera_work  ;
+;    |LOOP[50].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[50].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[51].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[51].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[52].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[52].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[53].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[53].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[54].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[54].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[55].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[55].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[56].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[56].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[57].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[57].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[58].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[58].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[59].my_div|               ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[59].my_div                                              ; div_int                   ; altera_work  ;
+;    |LOOP[5].my_div|                ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[5].my_div                                               ; div_int                   ; altera_work  ;
+;    |LOOP[6].my_div|                ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[6].my_div                                               ; div_int                   ; altera_work  ;
+;    |LOOP[7].my_div|                ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[7].my_div                                               ; div_int                   ; altera_work  ;
+;    |LOOP[8].my_div|                ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[8].my_div                                               ; div_int                   ; altera_work  ;
+;    |LOOP[9].my_div|                ; 133 (133)           ; 150 (150)                 ; 0                 ; 0          ; 0    ; 5.1 (5.1) ; LOOP[9].my_div                                               ; div_int                   ; altera_work  ;
+;    |count_ones|                    ; 108 (108)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 9.6 (9.6) ; count_ones                                                   ; count_ones                ; altera_work  ;
+;    |my_ram|                        ; 103 (31)            ; 36 (33)                   ; 524288            ; 0          ; 0    ; 9.6 (9.6) ; my_ram                                                       ; single_port_ram           ; altera_work  ;
+;       |ram_rtl_0|                  ; 72 (0)              ; 3 (0)                     ; 524288            ; 0          ; 0    ; 9.6 (0.0) ; my_ram|ram_rtl_0                                             ; altera_syncram            ; work         ;
+;          |auto_generated|          ; 72 (0)              ; 3 (0)                     ; 524288            ; 0          ; 0    ; 9.6 (0.0) ; my_ram|ram_rtl_0|auto_generated                              ; altera_syncram_qjv81      ; altera_work  ;
+;             |altera_syncram_impl1| ; 72 (0)              ; 3 (3)                     ; 524288            ; 0          ; 0    ; 9.6 (9.6) ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1         ; altera_syncram_impl_3p941 ; altera_work  ;
+;                |decode3|           ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 4.0 (4.0) ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|decode3 ; decode_29n7               ; altera_work  ;
+;                |mux4|              ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 9.6 (9.6) ; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|mux4    ; mux_1jlp1                 ; altera_work  ;
++------------------------------------+---------------------+---------------------------+-------------------+------------+------+-----------+--------------------------------------------------------------+---------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; my_ram|q[32..63]                       ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 32 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------+
+; General Register Statistics for Partition "root_partition" ;
++----------------------------------------------+-------------+
+; Statistic                                    ; Value       ;
++----------------------------------------------+-------------+
+; Total registers                              ; 9044        ;
+; Number of registers using Synchronous Clear  ; 2040        ;
+; Number of registers using Synchronous Load   ; 0           ;
+; Number of registers using Asynchronous Clear ; 8           ;
+; Number of registers using Asynchronous Load  ; 0           ;
+; Number of registers using Clock Enable       ; 8580        ;
+; Number of registers using Preset             ; 0           ;
++----------------------------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+-------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ; Restructuring Performed ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+-------------------------+
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[8].my_div|ac[1]       ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[8].my_div|q1[24]      ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[9].my_div|ac[13]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[9].my_div|q1[14]      ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[8].my_div|i[0]        ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[9].my_div|i[1]        ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[8].my_div|ac[32]      ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[9].my_div|ac[16]      ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[10].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[10].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[11].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[11].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[10].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[11].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[10].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[11].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[0].my_div|ac[1]       ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[0].my_div|q1[24]      ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[1].my_div|ac[13]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[1].my_div|q1[14]      ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[0].my_div|i[0]        ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[1].my_div|i[1]        ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[0].my_div|ac[32]      ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[1].my_div|ac[16]      ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[2].my_div|ac[1]       ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[2].my_div|q1[24]      ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[3].my_div|ac[13]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[3].my_div|q1[14]      ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[2].my_div|i[0]        ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[3].my_div|i[1]        ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[2].my_div|ac[32]      ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[3].my_div|ac[16]      ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[4].my_div|ac[1]       ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[4].my_div|q1[24]      ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[5].my_div|ac[13]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[5].my_div|q1[14]      ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[4].my_div|i[0]        ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[5].my_div|i[1]        ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[4].my_div|ac[32]      ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[5].my_div|ac[16]      ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[6].my_div|ac[1]       ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[6].my_div|q1[24]      ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[7].my_div|ac[13]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[7].my_div|q1[14]      ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[6].my_div|i[0]        ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[7].my_div|i[1]        ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[6].my_div|ac[32]      ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[7].my_div|ac[16]      ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[58].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[58].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[59].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[59].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[58].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[59].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[58].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[59].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[12].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[12].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[13].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[13].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[12].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[13].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[12].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[13].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[14].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[14].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[15].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[15].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[14].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[15].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[14].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[15].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[16].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[16].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[17].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[17].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[16].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[17].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[16].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[17].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[18].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[18].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[19].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[19].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[18].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[19].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[18].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[19].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[20].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[20].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[21].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[21].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[20].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[21].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[20].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[21].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[22].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[22].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[23].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[23].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[22].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[23].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[22].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[23].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[24].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[24].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[25].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[25].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[24].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[25].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[24].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[25].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[26].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[26].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[27].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[27].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[26].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[27].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[26].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[27].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[28].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[28].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[29].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[29].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[28].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[29].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[28].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[29].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[30].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[30].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[31].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[31].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[30].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[31].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[30].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[31].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[32].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[32].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[33].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[33].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[32].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[33].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[32].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[33].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[34].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[34].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[35].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[35].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[34].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[35].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[34].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[35].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[36].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[36].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[37].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[37].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[36].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[37].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[36].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[37].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[38].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[38].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[39].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[39].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[38].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[39].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[38].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[39].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[40].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[40].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[41].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[41].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[40].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[41].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[40].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[41].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[42].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[42].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[43].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[43].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[42].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[43].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[42].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[43].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[44].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[44].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[45].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[45].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[44].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[45].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[44].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[45].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[46].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[46].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[47].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[47].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[46].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[47].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[46].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[47].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[48].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[48].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[49].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[49].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[48].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[49].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[48].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[49].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[50].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[50].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[51].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[51].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[50].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[51].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[50].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[51].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[52].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[52].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[53].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[53].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[52].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[53].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[52].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[53].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[54].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[54].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[55].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[55].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[54].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[55].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[54].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[55].my_div|ac[16]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[56].my_div|ac[1]      ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[56].my_div|q1[24]     ; Yes                     ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; LOOP[57].my_div|ac[13]     ; Yes                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; LOOP[57].my_div|q1[14]     ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[56].my_div|i[0]       ; Yes                     ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; LOOP[57].my_div|i[1]       ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[56].my_div|ac[32]     ; Yes                     ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; LOOP[57].my_div|ac[16]     ; Yes                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+-------------------------+
+
+
++------------------------------------------------+
+; Registers Added for RAM Pass-Through Logic     ;
++-----------------------------+------------------+
+; Register Name               ; RAM Name         ;
++-----------------------------+------------------+
+; my_ram|ram_rtl_0_bypass[0]  ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[1]  ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[2]  ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[3]  ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[4]  ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[5]  ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[6]  ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[7]  ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[8]  ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[9]  ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[10] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[11] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[12] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[13] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[14] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[15] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[16] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[17] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[18] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[19] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[20] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[21] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[22] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[23] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[24] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[25] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[26] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[27] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[28] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[29] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[30] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[31] ; my_ram|ram_rtl_0 ;
+; my_ram|ram_rtl_0_bypass[32] ; my_ram|ram_rtl_0 ;
++-----------------------------+------------------+
+
+
++----------------------------------------------+
+; Registers Packed Into Inferred Megafunctions ;
++-----------------+------------------+---------+
+; Register Name   ; Megafunction     ; Type    ;
++-----------------+------------------+---------+
+; my_ram|q[0..31] ; my_ram|ram_rtl_0 ; RAM     ;
++-----------------+------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Source Assignments for my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1                                               ;
++---------------------------------+--------------------+------+----+--------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To ; Source Location                                        ;
++---------------------------------+--------------------+------+----+--------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -  ; tmp-clearbox/top/19060/altera_syncram_impl_3p941.tdf:0 ;
++---------------------------------+--------------------+------+----+--------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: my_ram|ram_rtl_0                           ;
++------------------------------------------------------------+----------------------+---------+
+; Parameter Name                                             ; Value                ; Type    ;
++------------------------------------------------------------+----------------------+---------+
+; ACF_BLOCK_RAM_AND_MLAB_EQUIVALENT_PAUSED_READ_CAPABILITIES ; DONT CARE            ; Untyped ;
+; ACF_BLOCK_RAM_AND_MLAB_EQUIVALENT_POWER_UP_CONDITIONS      ; AUTO                 ; Untyped ;
+; ACF_DISABLE_MLAB_RAM_USE                                   ; FALSE                ; Untyped ;
+; ACF_IMPLEMENT_MLAB_IN_16_BIT_DEEP_MODE                     ; FALSE                ; Untyped ;
+; ADDRESS_ACLR_A                                             ; NONE                 ; Untyped ;
+; ADDRESS_ACLR_B                                             ; NONE                 ; Untyped ;
+; ADDRESS_REG_B                                              ; CLOCK0               ; Untyped ;
+; BYTE_SIZE                                                  ; 8                    ; Untyped ;
+; BYTEENA_REG_B                                              ; CLOCK1               ; Untyped ;
+; CLKEN_POWER_OPTIMIZATION                                   ; OFF                  ; Untyped ;
+; CLOCK_DUTY_CYCLE_DEPENDENCE                                ; AUTO                 ; Untyped ;
+; CLOCK_ENABLE_CORE_A                                        ; USE_INPUT_CLKEN      ; Untyped ;
+; CLOCK_ENABLE_CORE_B                                        ; USE_INPUT_CLKEN      ; Untyped ;
+; CLOCK_ENABLE_INPUT_A                                       ; NORMAL               ; Untyped ;
+; CLOCK_ENABLE_INPUT_B                                       ; NORMAL               ; Untyped ;
+; CLOCK_ENABLE_OUTPUT_A                                      ; NORMAL               ; Untyped ;
+; CLOCK_ENABLE_OUTPUT_B                                      ; NORMAL               ; Untyped ;
+; ECC_PIPELINE_STAGE_ENABLED                                 ; FALSE                ; Untyped ;
+; ENABLE_COHERENT_READ                                       ; FALSE                ; Untyped ;
+; ENABLE_ECC                                                 ; FALSE                ; Untyped ;
+; ENABLE_ECC_ENCODER_BYPASS                                  ; FALSE                ; Untyped ;
+; ENABLE_FORCE_TO_ZERO                                       ; FALSE                ; Untyped ;
+; ENABLE_RUNTIME_MOD                                         ; NO                   ; Untyped ;
+; IMPLEMENT_IN_LES                                           ; OFF                  ; Untyped ;
+; INDATA_REG_B                                               ; CLOCK1               ; Untyped ;
+; INIT_FILE                                                  ; UNUSED               ; Untyped ;
+; INIT_FILE_LAYOUT                                           ; PORT_A               ; Untyped ;
+; init_file_restructured                                     ; UNUSED               ; Untyped ;
+; INSTANCE_NAME                                              ; UNUSED               ; Untyped ;
+; LOW_POWER_MODE                                             ; AUTO                 ; Untyped ;
+; MAXIMUM_DEPTH                                              ; 0                    ; Untyped ;
+; NUMWORDS_A                                                 ; 16384                ; Untyped ;
+; NUMWORDS_B                                                 ; 16384                ; Untyped ;
+; OPERATION_MODE                                             ; DUAL_PORT            ; Untyped ;
+; OPTIMIZATION_OPTION                                        ; AUTO                 ; Untyped ;
+; OUTDATA_ACLR_A                                             ; NONE                 ; Untyped ;
+; OUTDATA_ACLR_B                                             ; NONE                 ; Untyped ;
+; OUTDATA_REG_A                                              ; UNREGISTERED         ; Untyped ;
+; OUTDATA_REG_B                                              ; UNREGISTERED         ; Untyped ;
+; OUTDATA_SCLR_A                                             ; NONE                 ; Untyped ;
+; OUTDATA_SCLR_B                                             ; NONE                 ; Untyped ;
+; POWER_UP_UNINITIALIZED                                     ; FALSE                ; Untyped ;
+; RAM_BLOCK_TYPE                                             ; AUTO                 ; Untyped ;
+; RDCONTROL_REG_B                                            ; CLOCK1               ; Untyped ;
+; RDEN_POWER_OPTIMIZATION                                    ; OFF                  ; Untyped ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS                         ; DONT_CARE            ; Untyped ;
+; READ_DURING_WRITE_MODE_PORT_A                              ; NEW_DATA_NO_NBE_READ ; Untyped ;
+; READ_DURING_WRITE_MODE_PORT_B                              ; NEW_DATA_NO_NBE_READ ; Untyped ;
+; WIDTH_A                                                    ; 32                   ; Untyped ;
+; WIDTH_B                                                    ; 32                   ; Untyped ;
+; WIDTH_BYTEENA_A                                            ; 1                    ; Untyped ;
+; WIDTH_BYTEENA_B                                            ; 1                    ; Untyped ;
+; WIDTH_ECCENCPARITY                                         ; 8                    ; Untyped ;
+; WIDTH_ECCSTATUS                                            ; 3                    ; Untyped ;
+; WIDTHAD2_A                                                 ; 1                    ; Untyped ;
+; WIDTHAD2_B                                                 ; 1                    ; Untyped ;
+; WIDTHAD_A                                                  ; 14                   ; Untyped ;
+; WIDTHAD_B                                                  ; 14                   ; Untyped ;
+; WREN_POWER_OPTIMIZATION                                    ; OFF                  ; Untyped ;
+; CBXI_PARAMETER                                             ; altera_syncram_qjv81 ; Untyped ;
+; INDATA_ACLR_A                                              ; NONE                 ; Untyped ;
+; WRCONTROL_ACLR_A                                           ; NONE                 ; Untyped ;
++------------------------------------------------------------+----------------------+---------+
+
+
++---------------------------------------------------------------+
+; Preserve for Debug Assignments for Partition "root_partition" ;
++------+--------+-----------------------------------------------+
+; Name ; Status ; Notes                                         ;
++------+--------+-----------------------------------------------+
+Notes: Table created because there is an active PRESERVE_FOR_DEBUG_ENABLE in the project, even though there are no tagged names within the partition.
+
+
++------------------------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Partition "root_partition" ;
++------------------------+-----------------------------------------+
+; Type                   ; Count                                   ;
++------------------------+-----------------------------------------+
+; boundary_port          ; 131                                     ;
+; tennm_ff               ; 9044                                    ;
+;     CLR                ; 8                                       ;
+;     ENA                ; 6600                                    ;
+;     ENA SCLR           ; 1980                                    ;
+;     SCLR               ; 60                                      ;
+;     plain              ; 396                                     ;
+; tennm_lcell_comb       ; 8824                                    ;
+;     arith              ; 3464                                    ;
+;         0 data inputs  ; 125                                     ;
+;         1 data inputs  ; 6                                       ;
+;         2 data inputs  ; 2778                                    ;
+;         3 data inputs  ; 4                                       ;
+;         4 data inputs  ; 551                                     ;
+;     extend             ; 6                                       ;
+;         8 data inputs  ; 6                                       ;
+;     normal             ; 5354                                    ;
+;         0 data inputs  ; 1                                       ;
+;         2 data inputs  ; 66                                      ;
+;         3 data inputs  ; 2100                                    ;
+;         4 data inputs  ; 2149                                    ;
+;         5 data inputs  ; 489                                     ;
+;         6 data inputs  ; 549                                     ;
+; tennm_ram_block        ; 256                                     ;
+;                        ;                                         ;
+; Number of carry chains ; 128                                     ;
+; Max carry chain length ; 33                                      ;
+;                        ;                                         ;
+; Max LUT depth          ; 9.60                                    ;
+; Average LUT depth      ; 3.25                                    ;
++------------------------+-----------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Synthesis Resource Usage Summary for Partition "root_partition" ;
++---------------------------------------------+-------------------+
+; Resource                                    ; Usage             ;
++---------------------------------------------+-------------------+
+; Estimate of Logic utilization (ALMs needed) ; 5529              ;
+;                                             ;                   ;
+; Combinational ALUT usage for logic          ; 8824              ;
+;     -- 8 input functions                    ; 6                 ;
+;     -- 7 input functions                    ; 0                 ;
+;     -- 6 input functions                    ; 549               ;
+;     -- 5 input functions                    ; 489               ;
+;     -- 4 input functions                    ; 2700              ;
+;     -- <=3 input functions                  ; 5080              ;
+;                                             ;                   ;
+; Dedicated logic registers                   ; 9044              ;
+;                                             ;                   ;
+; I/O pins                                    ; 131               ;
+; Total MLAB memory bits                      ; 0                 ;
+; Total block memory bits                     ; 524288            ;
+;                                             ;                   ;
+; Total DSP Blocks                            ; 0                 ;
+;     -- [A] Total Fixed Point DSP Blocks     ; 0                 ;
+;     -- [B] Total Floating Point DSP Blocks  ; 0                 ;
+;                                             ;                   ;
+; Maximum fan-out node                        ; clk_gated         ;
+; Maximum fan-out                             ; 9300              ;
+; Total fan-out                               ; 64292             ;
+; Average fan-out                             ; 3.52              ;
++---------------------------------------------+-------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Synthesis RAM Summary for Partition "root_partition"                                                                                                                      ;
++---------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------+
+; Name                                                                ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size   ; MIF  ;
++---------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------+
+; my_ram|ram_rtl_0|auto_generated|altera_syncram_impl1|ALTERA_SYNCRAM ; AUTO ; Simple Dual Port ; 16384        ; 32           ; 16384        ; 32           ; 524288 ; None ;
++---------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+--------+------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Warnings for ../src/div_int.sv                                                                                                            ;
++------------+----------+-------+-----------------------------------------------------------------------------------------------------------+
+; Message ID ; Severity ; Count ; Sample Warning                                                                                            ;
++------------+----------+-------+-----------------------------------------------------------------------------------------------------------+
+; 13469      ; Warning  ; 1     ; Verilog HDL assignment warning at div_int.sv(44): truncated value with size 6 to match size of target (5) ;
++------------+----------+-------+-----------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Warnings for ../src/single_port_ram.v                                                                                                                                                                  ;
++------------+----------+-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Message ID ; Severity ; Count ; Sample Warning                                                                                                                                                         ;
++------------+----------+-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 276020     ; Warning  ; 1     ; Inferred RAM node "my_ram|ram_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design. ;
++------------+----------+-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Warnings for ../src/top.v                                                                                                                    ;
++-------------+----------+-------+-------------------------------------------------------------------------------------------------------------+
+; Message ID  ; Severity ; Count ; Sample Warning                                                                                              ;
++-------------+----------+-------+-------------------------------------------------------------------------------------------------------------+
+; 13024:13410 ; Warning  ; 1     ; Output pins are stuck at VCC or GND : Pin "data_output[7..63]" is stuck at GND                              ;
+; 16735       ; Warning  ; 121   ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(56): actual bit length 64 differs from formal bit length 32 for port "q"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(57): actual bit length 64 differs from formal bit length 32 for port "r"       ;
+;     16735   ;          ;       ; Verilog HDL warning at top.v(90): actual bit length 64 differs from formal bit length 7 for port "num_ones" ;
++-------------+----------+-------+-------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; General Warnings                                                                                                                                                                                                                                                           ;
++------------+------------------+-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Message ID ; Severity         ; Count ; Sample Warning                                                                                                                                                                                                                     ;
++------------+------------------+-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 20759      ; Critical Warning ; 1     ; Use the Reset Release IP in Intel Agilex 7 FPGA designs to ensure a successful configuration. For more information about the Reset Release IP, refer to the Configuration User Guide.                                              ;
+; 21620      ; Warning          ; 1     ; Design Assistant Results: 1 of 1 High severity rules issued violations in snapshot 'partitioned'. Please refer to DRC report 'C:/Quartus/KPIs/KPIs/OPT3/top/quartus_241/output_files/top.drc.partitioned.rpt' for more information ;
++------------+------------------+-------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Synthesis INI Usage                                                                                                                                                       ;
++------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Option                 ; Usage                                                                                                                                            ;
++------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Initialization file:   ; C:/Users/nshirazi/quartus.ini                                                                                                                    ;
+; dev_password5          ; d0070c637d8802a600c03785ce4b58a984b8e9a8fc9ace5b0b729e9a81f478d319e8785a122336132243233372337720010147545516555442110400017555455131155164454545 ;
+;                        ;                                                                                                                                                  ;
+; Internally Set INI's:  ;                                                                                                                                                  ;
++------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------+
+; Synthesis Messages ;
++--------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Synthesis
+    Info: Version 24.1.0 Internal Build 111 03/17/2024 SC Pro Edition
+    Info: Processing started: Thu Aug  8 10:32:59 2024
+    Info: System process ID: 19060
+Info: Command: quartus_syn --read_settings_files=on --write_settings_files=off --synthesis top -c top
+Info: Using INI file C:/Users/nshirazi/quartus.ini
+Info: qis_default_flow_script.tcl version: #1
+Info: Initializing Synthesis...
+Info: Project = "top"
+Info: Revision = "top"
+Info: Synthesizing partition "root_partition"
+Warning (276020): Inferred RAM node "my_ram|ram_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design. File: C:/Quartus/KPIs/KPIs/OPT3/top/src/single_port_ram.v Line: 14
+Info (19000): Inferred 1 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "my_ram|ram_rtl_0"  File: C:/Quartus/KPIs/KPIs/OPT3/top/src/single_port_ram.v Line: 14
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 14
+        Info (286033): Parameter NUMWORDS_A set to 16384
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 14
+        Info (286033): Parameter NUMWORDS_B set to 16384
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "data_output[7..63]" is stuck at GND File: C:/Quartus/KPIs/KPIs/OPT3/top/src/top.v Line: 10
+Info (21057): Implemented 14887 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 67 input pins
+    Info (21059): Implemented 64 output pins
+    Info (21061): Implemented 14500 logic cells
+    Info (21064): Implemented 256 RAM segments
+Info: Successfully synthesized partition
+Info: Saving post-synthesis snapshots for 1 partition(s)
+Info (21615): Running Design Assistant Rules for snapshot 'synthesized'
+Info: No waiver waived any violations
+Info (22360): Design Assistant Results: 13 of 14 enabled rules passed, and 7 rules was disabled, in snapshot 'synthesized'
+Info (21661): Design Assistant Results: 0 of 2 High severity rules issued violations in snapshot 'synthesized'
+Info (21621): Design Assistant Results: 1 of 6 Medium severity rules issued violations in snapshot 'synthesized'. Please refer to DRC report 'C:/Quartus/KPIs/KPIs/OPT3/top/quartus_241/output_files/top.drc.synthesized.rpt' for more information
+Info (21622): Design Assistant Results: 0 of 6 Low severity rules issued violations in snapshot 'synthesized'
+Info: Quartus Prime Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 777 megabytes
+    Info: Processing ended: Thu Aug  8 10:33:57 2024
+    Info: Elapsed time: 00:00:58
+    Info: System process ID: 19060
+
+

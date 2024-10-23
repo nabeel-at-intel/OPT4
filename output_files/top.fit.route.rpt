@@ -1,0 +1,556 @@
+Fitter Route Stage Report for top
+Thu Aug  8 10:57:07 2024
+Quartus Prime Version 24.1.0 Internal Build 111 03/17/2024 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Nets with Highest Wire Count
+  3. Delay Chain Summary
+  4. Routing Usage Summary
+  5. Route Messages
+  6. Estimated Delay Added for Hold Timing Summary
+  7. Estimated Delay Added for Hold Timing Details
+  8. Global Router Wire Utilization Map
+  9. Peak Wire Demand Summary
+ 10. Peak Wire Demand Details
+ 11. Peak Total Grid Crossings
+ 12. Global Router Congestion Hotspot Summary
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++----------------------------------------------------------+
+; Nets with Highest Wire Count                             ;
++--------------------------+----------------------+--------+
+; Net                      ; Number of Wires Used ; Fanout ;
++--------------------------+----------------------+--------+
+; LOOP[32].my_div|y1[31]~0 ; 739                  ; 188    ;
+; data_input[30]~input     ; 620                  ; 122    ;
+; data_input[31]~input     ; 539                  ; 122    ;
+; data_input[17]~input     ; 485                  ; 122    ;
+; data_input[14]~input     ; 463                  ; 122    ;
+; reset_int~_Duplicate_3   ; 440                  ; 599    ;
+; reset_int~_Duplicate_1   ; 425                  ; 557    ;
+; reset_int~_Duplicate_4   ; 421                  ; 739    ;
+; data_input[25]~input     ; 369                  ; 62     ;
+; data_input[27]~input     ; 368                  ; 62     ;
++--------------------------+----------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Delay Chain Summary                                                                                                                                              ;
++-----------------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+; Name            ; Pin Type ; Input Delay Chain 0 ; Output Delay Chain ; OE Delay Chain ; IO_12_LANE Input Data Delay Chain ; IO_12_LANE Input Strobe Delay Chain ;
++-----------------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+; data_output[0]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[1]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[2]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[3]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[4]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[5]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[6]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[39] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[40] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[41] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[42] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[43] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[44] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[45] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[46] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[47] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[48] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[49] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[50] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[51] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[52] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[53] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[54] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[55] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[56] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[57] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[58] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[59] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[60] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[61] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[62] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[63] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[7]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[8]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[9]  ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[10] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[11] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[12] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[13] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[14] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[15] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[16] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[17] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[18] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[19] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[20] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[21] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[22] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[23] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[24] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[25] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[26] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[27] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[28] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[29] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[30] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[31] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[32] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[33] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[34] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[35] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[36] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[37] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; data_output[38] ; Output   ; --                  ; 0                  ; --             ; --                                ; --                                  ;
+; clk             ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; pwr_save        ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; reset_n         ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[30]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[31]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[11]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[10]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[9]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[8]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[6]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[7]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[29]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[28]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[27]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[26]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[24]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[25]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[23]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[22]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[21]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[20]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[18]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[19]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[17]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[16]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[15]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[14]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[12]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[13]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[5]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[4]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[3]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[2]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[0]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[1]   ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[60]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[63]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[59]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[62]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[58]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[61]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[57]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[49]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[50]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[51]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[52]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[41]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[42]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[43]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[44]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[53]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[54]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[55]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[56]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[48]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[40]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[47]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[33]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[34]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[35]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[36]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[37]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[38]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[39]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[32]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[45]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
+; data_input[46]  ; Input    ; 0                   ; --                 ; --             ; --                                ; --                                  ;
++-----------------+----------+---------------------+--------------------+----------------+-----------------------------------+-------------------------------------+
+
+
++------------------------------------------------------------+
+; Routing Usage Summary                                      ;
++-----------------------------+------------------------------+
+; Routing Resource Type       ; Usage                        ;
++-----------------------------+------------------------------+
+; Block Input Mux Wrapbacks   ; 2 / 516,600 ( < 1 % )        ;
+; Block Input Muxes           ; 38,046 / 5,658,000 ( < 1 % ) ;
+; Block interconnects         ; 31,395 / 6,625,600 ( < 1 % ) ;
+; C1 interconnects            ; 16,029 / 2,769,200 ( < 1 % ) ;
+; C4 interconnects            ; 4,913 / 2,640,400 ( < 1 % )  ;
+; C8 interconnects            ; 374 / 264,040 ( < 1 % )      ;
+; DCM_muxes                   ; 0 / 824 ( 0 % )              ;
+; DELAY_CHAINs                ; 0 / 17,290 ( 0 % )           ;
+; Direct links                ; 6,387 / 6,625,600 ( < 1 % )  ;
+; HIO Buffers                 ; 0 / 45,920 ( 0 % )           ;
+; Programmable Invert Buffers ; 0 / 480 ( 0 % )              ;
+; Programmable Invert Inputs  ; 808 / 513,810 ( < 1 % )      ;
+; Programmable Inverts        ; 808 / 513,810 ( < 1 % )      ;
+; R0 interconnects            ; 19,946 / 4,620,700 ( < 1 % ) ;
+; R1 interconnects            ; 13,391 / 2,640,400 ( < 1 % ) ;
+; R12 interconnects           ; 537 / 396,060 ( < 1 % )      ;
+; R2 interconnects            ; 5,183 / 1,324,300 ( < 1 % )  ;
+; R4 interconnects            ; 2,934 / 1,332,500 ( < 1 % )  ;
+; R6 interconnects            ; 3,471 / 1,336,600 ( < 1 % )  ;
+; Redundancy Muxes            ; 1 / 90,920 ( < 1 % )         ;
+; Row Clock Tap-Offs          ; 794 / 396,060 ( < 1 % )      ;
+; Switchbox_clock_muxes       ; 3 / 13,440 ( < 1 % )         ;
+; VIO Buffers                 ; 67 / 19,200 ( < 1 % )        ;
+; Vertical_seam_tap_muxes     ; 2 / 6,720 ( < 1 % )          ;
++-----------------------------+------------------------------+
+
+
++----------------+
+; Route Messages ;
++----------------+
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 24.1.0 Internal Build 111 03/17/2024 SC Pro Edition
+    Info: Processing started: Thu Aug  8 10:36:07 2024
+    Info: System process ID: 26648
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off top -c top --plan --place --route --retime --finalize
+Info: Using INI file C:/Users/nshirazi/quartus.ini
+Info: qfit2_default_script.tcl version: #1
+Info: Project  = top
+Info: Revision = top
+Info (22300): Design uses Placement Effort Multiplier = 1.0.
+Info (170193): Fitter routing operations beginning
+Info (20215): Router estimated peak short interconnect demand : 2% of down directional wire in region X252_Y8 to X263_Y15
+    Info (20265): Estimated peak short right directional wire demand : 0% in region X0_Y0 to X11_Y7
+    Info (20265): Estimated peak short left directional wire demand : 0% in region X252_Y8 to X263_Y15
+    Info (20265): Estimated peak short up directional wire demand : 0% in region X0_Y0 to X11_Y7
+    Info (20265): Estimated peak short down directional wire demand : 2% in region X252_Y8 to X263_Y15
+Info (20215): Router estimated peak long high speed interconnect demand : 116% of down directional wire in region X252_Y8 to X263_Y15
+    Info (20265): Estimated peak long high speed right directional wire demand : 58% in region X240_Y8 to X251_Y15
+    Info (20265): Estimated peak long high speed left directional wire demand : 53% in region X264_Y24 to X275_Y31
+    Info (20265): Estimated peak long high speed up directional wire demand : 97% in region X252_Y0 to X263_Y7
+    Info (20265): Estimated peak long high speed down directional wire demand : 116% in region X252_Y8 to X263_Y15
+    Info (20315): Note that the router may use short wires to implement long connections at higher delay
+Info (170239): Router is attempting to preserve 0.01 percent of routes from an earlier compilation, a user specified Routing Constraints File, or internal routing requirements.
+Info (11888): Total time spent on timing analysis during Routing is 13.79 seconds.
+Info (16607): Fitter routing operations ending: elapsed time is 00:10:44
+
+
++------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary              ;
++-----------------+----------------------+-------------------+
+; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
++-----------------+----------------------+-------------------+
+; I/O             ; sys_clk              ; 8054.2            ;
++-----------------+----------------------+-------------------+
+Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
+This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
+
+
++---------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                       ;
++------------------------+------------------------+-------------------+
+; Source Register        ; Destination Register   ; Delay Added in ns ;
++------------------------+------------------------+-------------------+
+; data_input[45]         ; LOOP[58].my_div|q1[14] ; 2.303             ;
+; data_input[42]         ; LOOP[7].my_div|q1[11]  ; 2.252             ;
+; data_input[47]         ; LOOP[19].my_div|q1[16] ; 2.221             ;
+; data_input[34]         ; LOOP[9].my_div|q1[3]   ; 2.215             ;
+; data_input[48]         ; LOOP[5].my_div|q1[17]  ; 2.215             ;
+; data_input[55]         ; LOOP[20].my_div|q1[24] ; 2.182             ;
+; data_input[49]         ; LOOP[58].my_div|q1[18] ; 2.167             ;
+; data_input[36]         ; LOOP[16].my_div|q1[5]  ; 2.132             ;
+; data_input[35]         ; LOOP[19].my_div|q1[4]  ; 2.128             ;
+; data_input[40]         ; LOOP[20].my_div|q1[9]  ; 2.120             ;
+; data_input[60]         ; LOOP[8].my_div|q1[29]  ; 2.113             ;
+; data_input[44]         ; LOOP[16].my_div|q1[13] ; 2.098             ;
+; data_input[39]         ; LOOP[3].my_div|q1[8]   ; 2.087             ;
+; data_input[46]         ; LOOP[20].my_div|q1[15] ; 2.074             ;
+; data_input[41]         ; LOOP[20].my_div|q1[10] ; 2.066             ;
+; data_input[58]         ; LOOP[9].my_div|q1[27]  ; 2.006             ;
+; data_input[33]         ; LOOP[11].my_div|q1[2]  ; 2.002             ;
+; data_input[61]         ; LOOP[10].my_div|q1[30] ; 1.993             ;
+; data_input[32]         ; LOOP[8].my_div|q1[1]   ; 1.967             ;
+; data_input[43]         ; LOOP[7].my_div|q1[12]  ; 1.956             ;
+; data_input[51]         ; LOOP[17].my_div|q1[20] ; 1.902             ;
+; data_input[50]         ; LOOP[59].my_div|q1[19] ; 1.859             ;
+; data_input[53]         ; LOOP[58].my_div|q1[22] ; 1.822             ;
+; data_input[56]         ; LOOP[1].my_div|q1[25]  ; 1.806             ;
+; data_input[54]         ; LOOP[59].my_div|q1[23] ; 1.798             ;
+; data_input[57]         ; LOOP[0].my_div|q1[26]  ; 1.764             ;
+; data_input[59]         ; LOOP[9].my_div|q1[28]  ; 1.760             ;
+; data_input[62]         ; LOOP[3].my_div|q1[31]  ; 1.751             ;
+; data_input[37]         ; LOOP[20].my_div|q1[6]  ; 1.736             ;
+; data_input[52]         ; LOOP[0].my_div|q1[21]  ; 1.725             ;
+; data_input[38]         ; LOOP[20].my_div|q1[7]  ; 1.595             ;
+; data_input[5]          ; LOOP[41].my_div|y1[14] ; 1.523             ;
+; data_input[63]         ; LOOP[29].my_div|ac[0]  ; 1.523             ;
+; data_input[2]          ; LOOP[41].my_div|y1[14] ; 1.518             ;
+; data_input[13]         ; LOOP[41].my_div|y1[14] ; 1.495             ;
+; data_input[3]          ; LOOP[41].my_div|y1[14] ; 1.485             ;
+; data_input[20]         ; LOOP[41].my_div|y1[14] ; 1.469             ;
+; data_input[18]         ; LOOP[41].my_div|y1[14] ; 1.461             ;
+; data_input[6]          ; LOOP[41].my_div|y1[14] ; 1.442             ;
+; data_input[1]          ; LOOP[41].my_div|y1[14] ; 1.423             ;
+; data_input[26]         ; LOOP[41].my_div|y1[14] ; 1.397             ;
+; data_input[7]          ; LOOP[41].my_div|y1[14] ; 1.388             ;
+; data_input[10]         ; LOOP[41].my_div|y1[14] ; 1.378             ;
+; data_input[12]         ; LOOP[41].my_div|y1[14] ; 1.377             ;
+; data_input[9]          ; LOOP[41].my_div|y1[14] ; 1.371             ;
+; data_input[22]         ; LOOP[41].my_div|y1[14] ; 1.346             ;
+; data_input[24]         ; LOOP[41].my_div|y1[14] ; 1.335             ;
+; data_input[21]         ; LOOP[41].my_div|y1[14] ; 1.333             ;
+; data_input[8]          ; LOOP[41].my_div|y1[14] ; 1.239             ;
+; data_input[0]          ; LOOP[41].my_div|y1[14] ; 1.236             ;
+; data_input[31]         ; LOOP[41].my_div|y1[14] ; 1.231             ;
+; data_input[30]         ; LOOP[41].my_div|y1[14] ; 1.220             ;
+; data_input[25]         ; LOOP[41].my_div|y1[14] ; 1.218             ;
+; data_input[19]         ; LOOP[41].my_div|y1[14] ; 1.192             ;
+; data_input[4]          ; LOOP[41].my_div|y1[14] ; 1.191             ;
+; data_input[16]         ; LOOP[41].my_div|y1[14] ; 1.185             ;
+; data_input[27]         ; LOOP[41].my_div|y1[14] ; 1.154             ;
+; data_input[23]         ; LOOP[41].my_div|y1[14] ; 1.153             ;
+; data_input[11]         ; LOOP[41].my_div|y1[14] ; 1.130             ;
+; data_input[15]         ; LOOP[41].my_div|y1[14] ; 1.121             ;
+; data_input[29]         ; LOOP[41].my_div|y1[14] ; 1.087             ;
+; data_input[28]         ; LOOP[41].my_div|y1[14] ; 1.077             ;
+; data_input[14]         ; LOOP[41].my_div|y1[14] ; 0.978             ;
+; data_input[17]         ; LOOP[41].my_div|y1[14] ; 0.939             ;
+; LOOP[29].my_div|q1[31] ; LOOP[29].my_div|ac[0]  ; 0.761             ;
++------------------------+------------------------+-------------------+
+Note: This table only shows the top 65 path(s) that have the largest delay added for hold.
+
+
+--------------------------------------
+; Global Router Wire Utilization Map ;
+--------------------------------------
+This report is unavailable in plain text report export.
+
+
++-------------------------------------------------------------------------------+
+; Peak Wire Demand Summary                                                      ;
++-----------------+-----------+-----------------------------------+-------------+
+; Wire            ; Direction ; Grid [(Xmin, Ymin), (Xmax, Ymax)] ; Peak Demand ;
++-----------------+-----------+-----------------------------------+-------------+
+; short           ; left      ; [(252, 8), (263, 15)]             ; 0.089 %     ;
+; short           ; down      ; [(252, 8), (263, 15)]             ; 2.083 %     ;
+; long high speed ; right     ; [(240, 8), (251, 15)]             ; 58.333 %    ;
+; long high speed ; left      ; [(264, 24), (275, 31)]            ; 53.472 %    ;
+; long high speed ; up        ; [(252, 0), (263, 7)]              ; 97.101 %    ;
+; long high speed ; down      ; [(252, 8), (263, 15)]             ; 116.667 %   ;
++-----------------+-----------+-----------------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Peak Wire Demand Details                                                                                       ;
++-----------------+-----------+-----------------------------------+-------------+--------------------------------+
+; Wire            ; Direction ; Grid [(Xmin, Ymin), (Xmax, Ymax)] ; Peak Demand ; Net Names                      ;
++-----------------+-----------+-----------------------------------+-------------+--------------------------------+
+; short           ; left      ; [(252, 8), (263, 15)]             ; 0.089 %     ;    High Routing Fan-Out        ;
+;     --          ;           ;                                   ;             ; reset_n~input                  ;
+; short           ; left      ; [(252, 8), (263, 15)]             ; 0.089 %     ;    Long Distance               ;
+;     --          ;           ;                                   ;             ; reset_n~input                  ;
+; short           ; down      ; [(252, 8), (263, 15)]             ; 2.083 %     ;    High Routing Fan-Out        ;
+;     --          ;           ;                                   ;             ; reset_int~_Duplicate_3         ;
+;     --          ;           ;                                   ;             ; reset_int~_Duplicate_1         ;
+;     --          ;           ;                                   ;             ; LOOP[52].my_div|q[31]~0        ;
+;     --          ;           ;                                   ;             ; LOOP[57].my_div|q[31]~0        ;
+;     --          ;           ;                                   ;             ; LOOP[54].my_div|q[31]~0        ;
+;     --          ;           ;                                   ;             ; my_ram|ram_rtl_0_bypass[32]    ;
+;     --          ;           ;                                   ;             ; LOOP[57].my_div|q1[0]          ;
+;     --          ;           ;                                   ;             ; LOOP[56].my_div|q1[3]          ;
+;     --          ;           ;                                   ;             ; my_ram|ram_rtl_0_bypass[31]    ;
+;     --          ;           ;                                   ;             ; LOOP[57].my_div|q1[25]         ;
+; short           ; down      ; [(252, 8), (263, 15)]             ; 2.083 %     ;    Long Distance               ;
+;     --          ;           ;                                   ;             ; reset_int~_Duplicate_3         ;
+;     --          ;           ;                                   ;             ; reset_int~_Duplicate_1         ;
+;     --          ;           ;                                   ;             ; LOOP[52].my_div|q[31]~0        ;
+;     --          ;           ;                                   ;             ; LOOP[54].my_div|q[31]~0        ;
+;     --          ;           ;                                   ;             ; LOOP[57].my_div|q1[0]          ;
+;     --          ;           ;                                   ;             ; LOOP[57].my_div|q[31]~0        ;
+;     --          ;           ;                                   ;             ; my_ram|ram_rtl_0_bypass[32]    ;
+;     --          ;           ;                                   ;             ; LOOP[56].my_div|q1[3]          ;
+;     --          ;           ;                                   ;             ; my_ram|ram_rtl_0_bypass[31]    ;
+;     --          ;           ;                                   ;             ; LOOP[57].my_div|q1[25]         ;
+; long high speed ; right     ; [(240, 8), (251, 15)]             ; 58.333 %    ;    High Routing Fan-Out        ;
+;     --          ;           ;                                   ;             ; reset_int~_Duplicate_2         ;
+;     --          ;           ;                                   ;             ; LOOP[32].my_div|y1[31]~0       ;
+;     --          ;           ;                                   ;             ; LOOP[32].my_div|reduce_nor_0~3 ;
+;     --          ;           ;                                   ;             ; LOOP[32].my_div|reduce_nor_0~0 ;
+;     --          ;           ;                                   ;             ; LOOP[32].my_div|reduce_nor_0~5 ;
+;     --          ;           ;                                   ;             ; LOOP[7].my_div|q[31]~0         ;
+;     --          ;           ;                                   ;             ; LOOP[3].my_div|q[31]~0         ;
+;     --          ;           ;                                   ;             ; LOOP[1].my_div|q[31]~0         ;
+;     --          ;           ;                                   ;             ; LOOP[4].my_div|q[31]~0         ;
+;     --          ;           ;                                   ;             ; i11529                         ;
+; long high speed ; right     ; [(240, 8), (251, 15)]             ; 58.333 %    ;    Long Distance               ;
+;     --          ;           ;                                   ;             ; reset_int~_Duplicate_2         ;
+;     --          ;           ;                                   ;             ; LOOP[32].my_div|y1[31]~0       ;
+;     --          ;           ;                                   ;             ; LOOP[32].my_div|reduce_nor_0~3 ;
+;     --          ;           ;                                   ;             ; LOOP[32].my_div|reduce_nor_0~0 ;
+;     --          ;           ;                                   ;             ; LOOP[32].my_div|reduce_nor_0~5 ;
+;     --          ;           ;                                   ;             ; reduce_or_15~7                 ;
+;     --          ;           ;                                   ;             ; reduce_or_21~7                 ;
+;     --          ;           ;                                   ;             ; reduce_or_19~7                 ;
+;     --          ;           ;                                   ;             ; reduce_or_13~7                 ;
+;     --          ;           ;                                   ;             ; reduce_or_1~7                  ;
+; long high speed ; left      ; [(264, 24), (275, 31)]            ; 53.472 %    ;    High Routing Fan-Out        ;
+;     --          ;           ;                                   ;             ; LOOP[17].my_div|ac[32]         ;
+;     --          ;           ;                                   ;             ; LOOP[21].my_div|LessThan_0~1   ;
+;     --          ;           ;                                   ;             ; LOOP[17].my_div|LessThan_0~1   ;
+;     --          ;           ;                                   ;             ; LOOP[21].my_div|ac[32]         ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[3]          ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[2]          ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[1]          ;
+;     --          ;           ;                                   ;             ; LOOP[21].my_div|ac[12]         ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[14]         ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[13]         ;
+; long high speed ; left      ; [(264, 24), (275, 31)]            ; 53.472 %    ;    Long Distance               ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[25]         ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[24]         ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[23]         ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[21]         ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[20]         ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[26]         ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[22]         ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[19]         ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[14]         ;
+;     --          ;           ;                                   ;             ; LOOP[16].my_div|ac[13]         ;
+; long high speed ; up        ; [(252, 0), (263, 7)]              ; 97.101 %    ;    High Routing Fan-Out        ;
+;     --          ;           ;                                   ;             ; data_input[17]~input           ;
+;     --          ;           ;                                   ;             ; data_input[14]~input           ;
+;     --          ;           ;                                   ;             ; data_input[30]~input           ;
+;     --          ;           ;                                   ;             ; data_input[31]~input           ;
+;     --          ;           ;                                   ;             ; data_input[11]~input           ;
+;     --          ;           ;                                   ;             ; data_input[1]~input            ;
+;     --          ;           ;                                   ;             ; data_input[19]~input           ;
+;     --          ;           ;                                   ;             ; data_input[16]~input           ;
+;     --          ;           ;                                   ;             ; data_input[15]~input           ;
+;     --          ;           ;                                   ;             ; data_input[12]~input           ;
+; long high speed ; up        ; [(252, 0), (263, 7)]              ; 97.101 %    ;    Long Distance               ;
+;     --          ;           ;                                   ;             ; data_input[18]~input           ;
+;     --          ;           ;                                   ;             ; data_input[14]~input           ;
+;     --          ;           ;                                   ;             ; data_input[30]~input           ;
+;     --          ;           ;                                   ;             ; data_input[31]~input           ;
+;     --          ;           ;                                   ;             ; data_input[4]~input            ;
+;     --          ;           ;                                   ;             ; data_input[21]~input           ;
+;     --          ;           ;                                   ;             ; data_input[20]~input           ;
+;     --          ;           ;                                   ;             ; data_input[29]~input           ;
+;     --          ;           ;                                   ;             ; data_input[27]~input           ;
+;     --          ;           ;                                   ;             ; data_input[11]~input           ;
+; long high speed ; down      ; [(252, 8), (263, 15)]             ; 116.667 %   ;    High Routing Fan-Out        ;
+;     --          ;           ;                                   ;             ; reduce_or_13~xsyn_13           ;
+;     --          ;           ;                                   ;             ; reduce_or_1~xsyn_13            ;
+;     --          ;           ;                                   ;             ; reduce_or_3~xsyn_13            ;
+;     --          ;           ;                                   ;             ; reduce_or_5~xsyn_13            ;
+;     --          ;           ;                                   ;             ; reduce_or_7~xsyn_13            ;
+;     --          ;           ;                                   ;             ; reduce_or_9~xsyn_13            ;
+;     --          ;           ;                                   ;             ; reduce_or_11~xsyn_13           ;
+;     --          ;           ;                                   ;             ; reduce_or_15~xsyn_13           ;
+;     --          ;           ;                                   ;             ; reduce_or_17~xsyn_13           ;
+;     --          ;           ;                                   ;             ; reduce_or_19~xsyn_13           ;
+; long high speed ; down      ; [(252, 8), (263, 15)]             ; 116.667 %   ;    Long Distance               ;
+;     --          ;           ;                                   ;             ; LOOP[54].my_div|i482~0         ;
+;     --          ;           ;                                   ;             ; reduce_or_28                   ;
+;     --          ;           ;                                   ;             ; reduce_or_1~xsyn_13            ;
+;     --          ;           ;                                   ;             ; reduce_or_3~xsyn_13            ;
+;     --          ;           ;                                   ;             ; reduce_or_5~xsyn_13            ;
+;     --          ;           ;                                   ;             ; reduce_or_7~xsyn_13            ;
+;     --          ;           ;                                   ;             ; reduce_or_9~xsyn_13            ;
+;     --          ;           ;                                   ;             ; reduce_or_11~xsyn_13           ;
+;     --          ;           ;                                   ;             ; reduce_or_15~xsyn_13           ;
+;     --          ;           ;                                   ;             ; reduce_or_17~xsyn_13           ;
++-----------------+-----------+-----------------------------------+-------------+--------------------------------+
+
+
++-------------------------------------------------------+
+; Peak Total Grid Crossings                             ;
++--------------------------------+----------------------+
+; Net Name                       ; Total Grid Crossings ;
++--------------------------------+----------------------+
+; data_input[14]~input           ; 21                   ;
+; data_input[17]~input           ; 21                   ;
+; data_input[31]~input           ; 21                   ;
+; data_input[30]~input           ; 21                   ;
+; data_input[23]~input           ; 20                   ;
+; data_input[9]~input            ; 20                   ;
+; data_input[11]~input           ; 20                   ;
+; data_input[0]~input            ; 19                   ;
+; data_input[3]~input            ; 19                   ;
+; data_input[5]~input            ; 19                   ;
+; data_input[19]~input           ; 19                   ;
+; data_input[26]~input           ; 19                   ;
+; data_input[28]~input           ; 19                   ;
+; LOOP[32].my_div|y1[31]~0       ; 18                   ;
+; data_input[2]~input            ; 18                   ;
+; data_input[4]~input            ; 18                   ;
+; data_input[13]~input           ; 18                   ;
+; data_input[15]~input           ; 18                   ;
+; data_input[16]~input           ; 18                   ;
+; data_input[18]~input           ; 18                   ;
+; data_input[20]~input           ; 18                   ;
+; data_input[21]~input           ; 18                   ;
+; data_input[22]~input           ; 18                   ;
+; data_input[25]~input           ; 18                   ;
+; data_input[24]~input           ; 18                   ;
+; data_input[27]~input           ; 18                   ;
+; data_input[29]~input           ; 18                   ;
+; data_input[7]~input            ; 18                   ;
+; data_input[8]~input            ; 18                   ;
+; data_input[10]~input           ; 18                   ;
+; data_input[63]~input           ; 17                   ;
+; data_input[1]~input            ; 17                   ;
+; data_input[12]~input           ; 17                   ;
+; data_input[6]~input            ; 16                   ;
+; data_input[62]~input           ; 14                   ;
+; reset_int~_Duplicate_1         ; 11                   ;
+; reset_int~_Duplicate_2         ; 11                   ;
+; data_input[32]~input           ; 11                   ;
+; data_input[35]~input           ; 11                   ;
+; data_input[34]~input           ; 11                   ;
+; data_input[33]~input           ; 11                   ;
+; data_input[61]~input           ; 11                   ;
+; data_input[58]~input           ; 11                   ;
+; data_input[59]~input           ; 11                   ;
+; data_input[60]~input           ; 11                   ;
+; reset_int~_Duplicate_3         ; 10                   ;
+; LOOP[32].my_div|reduce_nor_0~5 ; 10                   ;
+; LOOP[32].my_div|reduce_nor_0~0 ; 10                   ;
+; LOOP[32].my_div|reduce_nor_0~3 ; 10                   ;
+; data_input[38]~input           ; 10                   ;
++--------------------------------+----------------------+
+
+
+--------------------------------------------
+; Global Router Congestion Hotspot Summary ;
+--------------------------------------------
+No congestion hotspots found where global router short wire usage exceeded 100%.
+If the design is hard to route, use other techniques to analyze congestion. Refer to the Estimated Delay Added for Hold Timing section in the Fitter report and routing utilization in the Chip Planner.
+
+

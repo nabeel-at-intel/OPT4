@@ -1,0 +1,68 @@
+# File saved with Nlview 7.5.7 2022-07-21 7101 VDI=41 GEI=38 GUI=QT:6.5.3
+#  -curmodule
+# non-default properties - (restore without -noprops)
+property -colorscheme classic
+property attrcolor #525252
+property autobundle 129
+property backgroundcolor #0e1926
+property boxcolor0 #ffffff
+property boxcolor1 #515a3d
+property boxcolor2 #005b85
+property boxcolor7 #653171
+property boxhierpins 3
+property boxinstcolor #55ffff
+property boxpincolor #525252
+property boxpinfontsize 6
+property buscolor #ffffff
+property buswidthlimit 0
+property createnetattrdsp 1024
+property createvconn 65
+property decorate 1
+property elidetext 1
+property fillcolor1 #b1d272
+property fillcolor2 #00c7fd
+property fillcolor3 #b4f0ff
+property fillcolor5 #c0c0c0
+property fillcolor6 #00c7fd
+property fillcolor7 #cc94da
+property fillcolor8 #86b3ca
+property fillcolor9 #00346e
+property fillcolor10 #548fad
+property fillcolor11 #aeaeae
+property instattrmax -1
+property netcolor #ffffff
+property nohiernegpins 0
+property overlaycolor #ffffff
+property pbuscolor #525252
+property pbusnamecolor #55ffff
+property pinattrmax -1
+property pinautohide 0
+property portcolor #525252
+property portnamecolor #55ffff
+property ripattrmax -1
+property rippercolor #ffffff
+property rubberbandcolor #00aaff
+property selectionappearance 6
+property selectioncolor #00ffff
+property sheetheight 34
+property sheetwidth 44
+property showmarks 9
+property showpagenumbers 1
+property showripindex 1
+property showvconn 1
+#
+module new top {}
+load port input_1 input -attr @name input_1 -pg 1 -lvl 0 -x 0 -y 20
+load port output_1 output -attr @name output_1 -pg 1 -lvl 1 -x 20 -y 20
+levelinfo -pg 1 0 20
+pagesize -pg 1 -db -bbox -sgen -80 0 110 40
+show
+zoom 0.945994
+scrollpos -483 -283
+#
+# initialize ictrl to current module top {}
+ictrl init {} |
+ictrl property autohide 1
+ictrl property addSubpinInfo 1
+ictrl property addSubportInfo 1
+ictrl property addFillcolor12 0

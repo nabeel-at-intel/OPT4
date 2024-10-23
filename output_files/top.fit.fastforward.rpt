@@ -1,0 +1,821 @@
+Fitter Fastforward Stage Report for top
+Tue Aug 20 13:41:06 2024
+Quartus Prime Version 24.1.0 Internal Build 111 03/17/2024 SC Pro Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Summary
+  3. Settings
+  4. Clock Fmax Summary
+  5. Clock Worst-Case Slack Summary
+  6. Fast Forward Summary for Clock Domain sys_clk
+  7. Critical Chain for Base Result
+  8. Optimizations Analyzed for Fast Forward Step 1 (357 MHz)
+  9. Meets timing requirements: No further analysis performed.
+ 10. Internal Retiming Statistics (Developer License only)
+ 11. Hyper-Retimer INI Usage
+ 12. Fastforward Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the Intel FPGA Software License Subscription Agreements 
+on the Quartus Prime software download page.
+
+
+
++-----------------------------------------------------------------------------+
+; Summary                                                                     ;
++-----------------------+-----------------------------------------------------+
+; Fast Forward Status   ; Successful - Tue Aug 20 13:41:05 2024               ;
+; Quartus Prime Version ; 24.1.0 Internal Build 111 03/17/2024 SC Pro Edition ;
+; Revision Name         ; top                                                 ;
+; Top-level Entity Name ; top                                                 ;
+; Family                ; Agilex 7                                            ;
+; Device                ; AGFB014R24A2I2V                                     ;
++-----------------------+-----------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Settings                                                                                          ;
++-------------------------------------------------------------------------+---------+---------------+
+; Option                                                                  ; Setting ; Default Value ;
++-------------------------------------------------------------------------+---------+---------------+
+; Enable Hyper-Retimer Fast Forward analysis during compilation           ; Off     ; Off           ;
+; Enable Hyper-Retimer Fast Forward Hierarchy analysis during compilation ; On      ; On            ;
+; Fast Forward Compile Maximum Additional Pipeline Stages                 ; -1      ; -1            ;
+; Fast Forward Compile Asynchronous Clears                                ; Auto    ; Auto          ;
+; Fast Forward Compile User Preserve Directives                           ; Auto    ; Auto          ;
+; Fast Forward Compile Fully Register DSP blocks                          ; On      ; On            ;
+; Fast Forward Compile Fully Register RAM blocks                          ; On      ; On            ;
+; Enable Critical Chain Viewer                                            ; On      ; On            ;
++-------------------------------------------------------------------------+---------+---------------+
+To turn on Fast Forward analysis during Quartus compilation, edit the setting in the HyperFlex settings menu in the Quartus GUI or set_global_assignment -name FLOW_ENABLE_HYPER_RETIMER_FAST_FORWARD ON in your QSF
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Fmax Summary                                                                                                                        ;
++------------+---------+------------------------------+--------------------------------+----------------------------------+-----------------+
+; Clock Name ; Fmax    ; Achieved with Hyper-Retiming ; Achieved with Hyper-Pipelining ; Achieved with Hyper-Optimization ; Restricted Fmax ;
++------------+---------+------------------------------+--------------------------------+----------------------------------+-----------------+
+; sys_clk    ; 235 MHz ; 235 MHz                      ; 357 MHz                        ; 357 MHz                          ; 357 MHz         ;
++------------+---------+------------------------------+--------------------------------+----------------------------------+-----------------+
+Fast Forward Compilation enabled: Post-place & route results are analyzed to provide step-by-step recommendations for suggested RTL changes and show the estimated performance improvement from making these changes
+- Fmax/Slack: Estimated performance from retiming existing registers in the design
+- Relationship: Timing relationship between launch and latch clock edge
+- Achieved with Hyper-Retiming: Estimated performance from analyzing optimizations to remove restrictions that prevent registers from retiming
+- Achieved with Hyper-Pipelining: Estimated performance from analyzing optimizations to add new registers to the design to pipeline paths better
+- Achieved with Hyper-Optimization: Estimated performance from analyzing optimizations to further improve the design
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Worst-Case Slack Summary                                                                                                              ;
++------------+-----------------------------+------------------------------+--------------------------------+----------------------------------+
+; Clock Name ; Slack                       ; Achieved with Hyper-Retiming ; Achieved with Hyper-Pipelining ; Achieved with Hyper-Optimization ;
++------------+-----------------------------+------------------------------+--------------------------------+----------------------------------+
+; sys_clk    ; -1.260 (3.000 Relationship) ; -1.260 (3.000 Relationship)  ; 0.201 (3.000 Relationship)     ; 0.201 (3.000 Relationship)       ;
++------------+-----------------------------+------------------------------+--------------------------------+----------------------------------+
+Fast Forward Compilation enabled: Post-place & route results are analyzed to provide step-by-step recommendations for suggested RTL changes and show the estimated performance improvement from making these changes
+- Fmax/Slack: Estimated performance from retiming existing registers in the design
+- Relationship: Timing relationship between launch and latch clock edge
+- Achieved with Hyper-Retiming: Estimated performance from analyzing optimizations to remove restrictions that prevent registers from retiming
+- Achieved with Hyper-Pipelining: Estimated performance from analyzing optimizations to add new registers to the design to pipeline paths better
+- Achieved with Hyper-Optimization: Estimated performance from analyzing optimizations to further improve the design
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Forward Summary for Clock Domain sys_clk                                                                                                ;
++-----------------------------------------+-----------------------------------------------------------+----------------+--------+--------------+
+; Step                                    ; Fast Forward Optimizations Analyzed                       ; Estimated Fmax ; Slack  ; Relationship ;
++-----------------------------------------+-----------------------------------------------------------+----------------+--------+--------------+
+; Base Performance                        ; None                                                      ; 235 MHz        ; -1.260 ; 3.000        ;
+; Fast Forward Step #1 (Hyper-Pipelining) ; Removed asynchronous clears on 66 Registers               ; 357 MHz        ; 0.201  ; 3.000        ;
+;                                         ; Added up to 1 pipeline stage in 7 Paths                   ;                ;        ;              ;
+; Fast Forward Limit                      ; Meets timing requirements: No further analysis performed. ; --             ; --     ; --           ;
++-----------------------------------------+-----------------------------------------------------------+----------------+--------+--------------+
+
+
+Critical Chain for Base Result
+===============================================================================
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; Critical Chain for Base Result                                     ;
++--------------------------------------------------------------------+
+; See 'Retiming Limit Details' results in Fitter Retime Stage folder ;
++--------------------------------------------------------------------+
+
+
+
+Optimizations Analyzed for Fast Forward Step 1 (357 MHz)
+===============================================================================
++------------------------------------------------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                                                            ;
++------------------------------------------------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                                                            ;
++------------------------------------------------------------------------------------------------+
+; Removed asynchronous clears on 66 Registers (1 Domain)                                         ;
+;  Removed asynchronous clears on 66 Registers in Clock Domain 'sys_clk' (1 Entity)              ;
+;   Removed asynchronous clears on 66 Registers in Entity top (1 Instance)                       ;
+;    Removed asynchronous clears on 66 Registers in Instance                                     ;
+;     Removed asynchronous clears on bus data_output~reg0 (64 signals)                           ;
+;     Removed asynchronous clears on reset_int~_Duplicate_1                                      ;
+;     Removed asynchronous clears on reset_int~_Duplicate_3                                      ;
+; Added up to 1 pipeline stage in 7 Paths for Clock Domain sys_clk                               ;
+;  Added up to 1 pipeline stage in 7 Paths from Clock Domain 'sys_clk' to Top-level Output ports ;
+;   Added up to 1 pipeline stage in 7 Paths from Entity top to Top-level Output ports            ;
+;    Added up to 1 pipeline stage in 7 Paths from Instance  to Top-level Output ports            ;
+;     Added up to 1 pipeline stage along these paths AFTER the sources                           ;
+;      from data_output[0]~reg0 to data_output[0]                                                ;
+;      from data_output[1]~reg0 to data_output[1]                                                ;
+;      from data_output[2]~reg0 to data_output[2]                                                ;
+;      from data_output[3]~reg0 to data_output[3]                                                ;
+;      from data_output[4]~reg0 to data_output[4]                                                ;
+;      from data_output[5]~reg0 to data_output[5]                                                ;
+;      from data_output[6]~reg0 to data_output[6]                                                ;
++------------------------------------------------------------------------------------------------+
+
+
+
+Meets timing requirements: No further analysis performed.
+===============================================================================
++------------------------------------------------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                                                            ;
++------------------------------------------------------------------------------------------------+
+; Optimizations Analyzed (Cumulative)                                                            ;
++------------------------------------------------------------------------------------------------+
+; Removed asynchronous clears on 66 Registers (1 Domain)                                         ;
+;  Removed asynchronous clears on 66 Registers in Clock Domain 'sys_clk' (1 Entity)              ;
+;   Removed asynchronous clears on 66 Registers in Entity top (1 Instance)                       ;
+;    Removed asynchronous clears on 66 Registers in Instance                                     ;
+;     Removed asynchronous clears on bus data_output~reg0 (64 signals)                           ;
+;     Removed asynchronous clears on reset_int~_Duplicate_1                                      ;
+;     Removed asynchronous clears on reset_int~_Duplicate_3                                      ;
+; Added up to 1 pipeline stage in 7 Paths for Clock Domain sys_clk                               ;
+;  Added up to 1 pipeline stage in 7 Paths from Clock Domain 'sys_clk' to Top-level Output ports ;
+;   Added up to 1 pipeline stage in 7 Paths from Entity top to Top-level Output ports            ;
+;    Added up to 1 pipeline stage in 7 Paths from Instance  to Top-level Output ports            ;
+;     Added up to 1 pipeline stage along these paths AFTER the sources                           ;
+;      from data_output[0]~reg0 to data_output[0]                                                ;
+;      from data_output[1]~reg0 to data_output[1]                                                ;
+;      from data_output[2]~reg0 to data_output[2]                                                ;
+;      from data_output[3]~reg0 to data_output[3]                                                ;
+;      from data_output[4]~reg0 to data_output[4]                                                ;
+;      from data_output[5]~reg0 to data_output[5]                                                ;
+;      from data_output[6]~reg0 to data_output[6]                                                ;
++------------------------------------------------------------------------------------------------+
+
+
+
++-----------------------------------------------------------------------------------------+
+; Internal Retiming Statistics (Developer License only)                                   ;
++------------------------------------------------------------------------------+----------+
+; Statistic                                                                    ; Value    ;
++------------------------------------------------------------------------------+----------+
+; Number of iterations                                                         ; 4        ;
+; Number of BF clock transfers                                                 ; 1        ;
+; Number of all-clock-transfer BF calls                                        ; 0        ;
+; Number of single-clock-transfer BF calls                                     ; 0        ;
+; Number of BF iterations                                                      ; 0        ;
+; Number of dual graph edges                                                   ; 61738    ;
+; Number of dual graph nodes                                                   ; 22160    ;
+; Number of dual graph nodes that failed EA                                    ; 0        ;
+; Number of register moves                                                     ; 77       ;
+; Number of backward register moves attempted                                  ; 123      ;
+; Number of failed register moves due to initial condition                     ; 0        ;
+; Number of failed register moves due to backward reconvergent                 ; 0        ;
+; Number of failed register moves due to incompatibility                       ; 0        ;
+; Number of failed register moves due to unsupported high power-ups on ALM FFs ; 0        ;
+; Number of failed register moves due to power-up unknown buried slots         ; 0        ;
+; Number of cumulative register moves                                          ; 77       ;
+; Number of clock pairs with new timing paths                                  ; 0        ;
+; Number of dont_touch nodes                                                   ; 274      ;
+; Number of dont_touch useless nodes                                           ; 0        ;
+; Number of traversed subdomains                                               ; 0        ;
+; Number of negative cycles found                                              ; 6        ;
+; Number of BF edges checked                                                   ; 0        ;
+; Number of constraints in the constraint graph                                ; 121946   ;
+; Number of locations disabled due to clock overuse                            ; 0        ;
+; Number of dont_touch nodes to prevent self clock transfers                   ; 0        ;
+; Number of cut edges extended for variable latency by zero                    ; 3995     ;
+; Number of cut edges extended for variable latency by one                     ; 1        ;
+; Number of cut edges extended for variable latency by two                     ; 1        ;
+; Number of cut edges extended for variable latency by three                   ; 1        ;
+; Number of cut edges extended for variable latency by four or more            ; 4        ;
+; Number of cut edges extended for variable latency already used               ; 0        ;
+; Number of sclr/ena slots that can't be used because only one retimable       ; 0        ;
+; Number of sclr/ena slots that must be retimed together                       ; 0        ;
+; Number of dynamic hold constraint calls made                                 ; 0        ;
+; Number of dynamic hold constraint call failures                              ; 0        ;
+; Number of dynamic hold constraints added                                     ; 0        ;
+; Number of dynamic duplicate hold constraints skipped                         ; 0        ;
+; Number of dynamic hold clock conflict                                        ; 0        ;
+; Number of dynamic hold setup slack too small                                 ; 0        ;
+; Number of dynamic hold should already be fixed                               ; 0        ;
+; Number of dynamic hold fixed                                                 ; 0        ;
+; Number of setup constraints updated by setup constraints                     ; 0        ;
+; Number of setup constraints updated by heuristic constraints                 ; 0        ;
+; Number of heuristic constraints updated by setup constraints                 ; 0        ;
+; Number of heuristic constraints updated by heuristic constraints             ; 0        ;
+; Number of setup constraints not updated by setup constraints                 ; 0        ;
+; Number of setup constraints not updated by heuristic constraints             ; 0        ;
+; Number of heuristic constraints not updated by setup constraints             ; 0        ;
+; Number of heuristic constraints not updated by heuristic constraints         ; 0        ;
+; Number of heuristic constraints looser than setup constraints                ; 0        ;
+; Number of heuristic constraints tighter than setup constraints               ; 0        ;
+; Number of failing heuristic constraints that appear on final critical chains ; 0        ;
+; Number of clock legality calls                                               ; 0        ;
+; Number of clock legality call failures                                       ; 0        ;
+; Number of power-up legality calls                                            ; 1        ;
+; Number of power-up legality call failures                                    ; 0        ;
+; Number of ALM registers with power-up CARE                                   ; 37       ;
+; Maximum number of forward register moves over a dual graph node              ; 1        ;
+; Maximum number of backward register moves over a dual graph node             ; 1        ;
+; Fraction of relaxed nodes in BF                                              ; 0.000000 ;
+; RTM report generation time (seconds)                                         ; 0.750267 ;
+; Average retiming depth                                                       ; 1.402439 ;
+; Total retimer cpu time                                                       ; 3.859375 ;
+; Total retimer wall-clock time                                                ; 3.188113 ;
+; Total retimer giga instructions                                              ; 0.000000 ;
++------------------------------------------------------------------------------+----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hyper-Retimer INI Usage                                                                                                                                                   ;
++------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Option                 ; Usage                                                                                                                                            ;
++------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Initialization file:   ; C:/Users/nshirazi/quartus.ini                                                                                                                    ;
+; dev_password5          ; d0070c637d8802a600c03785ce4b58a984b8e9a8fc9ace5b0b729e9a81f478d319e8785a122336132243233372337720010147545516555442110400017555455131155164454545 ;
+;                        ;                                                                                                                                                  ;
+; Internally Set INI's:  ;                                                                                                                                                  ;
++------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------+
+; Fastforward Messages ;
++----------------------+
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: *******************************************************************
+Info: Running Quartus Prime Fitter
+    Info: Version 24.1.0 Internal Build 111 03/17/2024 SC Pro Edition
+    Info: Processing started: Tue Aug 20 13:37:44 2024
+    Info: System process ID: 25572
+Info: Command: quartus_fit --read_settings_files=on --write_settings_files=off top -c top --fastforward --continue_flow
+Info: Using INI file C:/Users/nshirazi/quartus.ini
+Info (16677): Loading routed database.
+Info (16734): Loading "routed" snapshot for partition "root_partition".
+Info (16678): Successfully loaded routed database: elapsed time is 00:00:28.
+Info (21077): Low junction temperature is -40 degrees C
+Info (21077): High junction temperature is 100 degrees C
+Info (21077): Low junction temperature is -40 degrees C
+Info (21077): High junction temperature is 100 degrees C
+Info (19539): Reading the HDL-embedded SDC files elapsed 00:00:00.
+Info (332104): Reading SDC File: '../src/top.sdc'
+Info (19449): Reading SDC files elapsed 00:00:00.
+Warning (332070): Port "data_input[0]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[0]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[10]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[10]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[11]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[11]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[12]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[12]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[13]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[13]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[14]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[14]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[15]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[15]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[16]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[16]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[17]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[17]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[18]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[18]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[19]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[19]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[1]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[1]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[20]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[20]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[21]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[21]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[22]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[22]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[23]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[23]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[24]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[24]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[25]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[25]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[26]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[26]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[27]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[27]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[28]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[28]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[29]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[29]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[2]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[2]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[30]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[30]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[31]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[31]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[32]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[32]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[33]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[33]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[34]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[34]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[35]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[35]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[36]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[36]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[37]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[37]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[38]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[38]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[39]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[39]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[3]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[3]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[40]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[40]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[41]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[41]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[42]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[42]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[43]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[43]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[44]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[44]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[45]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[45]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[46]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[46]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[47]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[47]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[48]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[48]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[49]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[49]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[4]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[4]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[50]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[50]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[51]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[51]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[52]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[52]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[53]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[53]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[54]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[54]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[55]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[55]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[56]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[56]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[57]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[57]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[58]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[58]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[59]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[59]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[5]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[5]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[60]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[60]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[61]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[61]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[62]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[62]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[63]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[63]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[6]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[6]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[7]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[7]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[8]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[8]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[9]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[9]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_output[0]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[0]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[10]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[10]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[11]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[11]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[12]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[12]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[13]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[13]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[14]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[14]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[15]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[15]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[16]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[16]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[17]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[17]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[18]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[18]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[19]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[19]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[1]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[1]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[20]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[20]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[21]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[21]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[22]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[22]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[23]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[23]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[24]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[24]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[25]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[25]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[26]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[26]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[27]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[27]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[28]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[28]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[29]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[29]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[2]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[2]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[30]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[30]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[31]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[31]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[32]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[32]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[33]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[33]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[34]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[34]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[35]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[35]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[36]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[36]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[37]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[37]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[38]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[38]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[39]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[39]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[3]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[3]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[40]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[40]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[41]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[41]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[42]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[42]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[43]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[43]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[44]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[44]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[45]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[45]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[46]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[46]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[47]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[47]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[48]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[48]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[49]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[49]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[4]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[4]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[50]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[50]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[51]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[51]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[52]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[52]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[53]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[53]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[54]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[54]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[55]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[55]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[56]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[56]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[57]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[57]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[58]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[58]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[59]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[59]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[5]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[5]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[60]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[60]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[61]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[61]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[62]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[62]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[63]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[63]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[6]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[6]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[7]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[7]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[8]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[8]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[9]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[9]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Warning (332158): Clock uncertainty characteristics of the Agilex 7 device family are preliminary
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Warning (332070): Port "data_input[0]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[0]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[10]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[10]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[11]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[11]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[12]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[12]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[13]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[13]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[14]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[14]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[15]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[15]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[16]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[16]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[17]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[17]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[18]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[18]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[19]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[19]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[1]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[1]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[20]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[20]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[21]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[21]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[22]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[22]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[23]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[23]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[24]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[24]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[25]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[25]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[26]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[26]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[27]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[27]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[28]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[28]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[29]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[29]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[2]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[2]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[30]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[30]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[31]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[31]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[32]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[32]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[33]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[33]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[34]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[34]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[35]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[35]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[36]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[36]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[37]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[37]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[38]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[38]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[39]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[39]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[3]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[3]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[40]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[40]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[41]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[41]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[42]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[42]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[43]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[43]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[44]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[44]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[45]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[45]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[46]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[46]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[47]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[47]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[48]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[48]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[49]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[49]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[4]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[4]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[50]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[50]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[51]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[51]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[52]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[52]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[53]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[53]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[54]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[54]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[55]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[55]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[56]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[56]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[57]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[57]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[58]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[58]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[59]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[59]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[5]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[5]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[60]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[60]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[61]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[61]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[62]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[62]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[63]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[63]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[6]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[6]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[7]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[7]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[8]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[8]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_input[9]" relative to the rising edge of clock "v" does not specify a min-fall input delay
+Warning (332070): Port "data_input[9]" relative to the rising edge of clock "v" does not specify a min-rise input delay
+Warning (332070): Port "data_output[0]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[0]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[10]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[10]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[11]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[11]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[12]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[12]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[13]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[13]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[14]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[14]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[15]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[15]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[16]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[16]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[17]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[17]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[18]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[18]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[19]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[19]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[1]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[1]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[20]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[20]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[21]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[21]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[22]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[22]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[23]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[23]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[24]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[24]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[25]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[25]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[26]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[26]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[27]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[27]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[28]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[28]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[29]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[29]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[2]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[2]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[30]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[30]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[31]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[31]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[32]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[32]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[33]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[33]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[34]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[34]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[35]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[35]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[36]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[36]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[37]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[37]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[38]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[38]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[39]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[39]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[3]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[3]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[40]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[40]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[41]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[41]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[42]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[42]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[43]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[43]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[44]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[44]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[45]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[45]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[46]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[46]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[47]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[47]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[48]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[48]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[49]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[49]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[4]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[4]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[50]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[50]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[51]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[51]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[52]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[52]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[53]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[53]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[54]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[54]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[55]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[55]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[56]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[56]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[57]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[57]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[58]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[58]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[59]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[59]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[5]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[5]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[60]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[60]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[61]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[61]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[62]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[62]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[63]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[63]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[6]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[6]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[7]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[7]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[8]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[8]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Warning (332070): Port "data_output[9]" relative to the rising edge of clock "v" does not specify a min-fall output delay
+Warning (332070): Port "data_output[9]" relative to the rising edge of clock "v" does not specify a min-rise output delay
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info (332129): Detected timing requirements -- optimizing circuit to achieve only the specified requirements
+Info (332111): Found 2 clocks
+    Info (332111):   Period   Clock Name
+    Info (332111): ======== ============
+    Info (332111):    3.000      sys_clk
+    Info (332111):    3.000            v
+Info (18747): Starting Fast Forward Timing Closure Recommendations analysis.
+Info (19245): Unable to provide further Fast Forward analysis of the design due to retiming restrictions (RTL or timing constraints).
+Info (17959): Fast Forward step #1 completed.
+Info (18748): Completed Fast Forward Timing Closure Recommendations analysis.
+Info (18821): Fitter Hyper-Retimer operations ending: elapsed time is 00:00:16
+
+
